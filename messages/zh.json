@@ -62,20 +62,20 @@
     "description": "光圈棱镜背后的智慧大脑。我们是一群多元化的思考者和实干家。",
     "members": {
       "alex": {
-        "role": "创始人 & 首席设计师",
-        "bio": "痴迷于极简主义和功能美学。曾就职于 Apple 和 Airbnb。"
+        "role": "创始人 & 核心开发者",
+        "bio": "专注于前后端开发与软硬件运维技术"
       },
       "sarah": {
-        "role": "CTO",
-        "bio": "全栈架构师，热衷于可扩展系统和性能优化。"
+        "role": "创始人 & 核心开发者",
+        "bio": "前端工程师 & 摸鱼小能手"
       },
       "jordan": {
-        "role": "产品经理",
-        "bio": "连接用户需求与技术可行性的桥梁。"
+        "role": "创始人 & 核心开发者",
+        "bio": "入机（"
       },
       "emily": {
-        "role": "创意总监",
-        "bio": "屡获殊荣的视觉艺术家，通过数字媒介赋予故事生命。"
+        "role": "暂无 欢迎加入",
+        "bio": "暂无 欢迎加入"
       }
     }
   },
@@ -84,22 +84,22 @@
     "description": "精选项目展示了我们对设计和工程的热情。",
     "items": {
       "alpha": {
-        "title": "Project Alpha",
+        "title": "APrism-Home",
         "category": "Web 开发",
-        "description": "为规模和性能而生的下一代电子商务平台。"
+        "description": "AperturePrism团队官网"
       },
       "neon": {
-        "title": "Neon Horizon",
-        "category": "品牌识别",
-        "description": "一家金融科技初创公司的全面品牌重塑，专注于信任和现代感。"
+        "title": "Fur-Img-API",
+        "category": "后端开发",
+        "description": "团队项目 基于Node.js的随机图片API"
       },
       "quantum": {
-        "title": "Quantum Flow",
+        "title": "Quantum Flow（模拟数据）",
         "category": "移动应用",
         "description": "帮助团队轻松管理复杂工作流的生产力应用。"
       },
       "aether": {
-        "title": "Aether",
+        "title": "Aether（模拟数据）",
         "category": "UI/UX 设计",
         "description": "面向企业级 SaaS 产品的设计系统和组件库。"
       }
@@ -109,8 +109,8 @@
     "title": "取得联系",
     "description": "有项目想法？让我们谈谈如何帮助您将其变为现实。",
     "form": {
-      "firstName": "名",
-      "lastName": "姓",
+      "firstName": "姓",
+      "lastName": "名",
       "email": "邮箱",
       "message": "留言",
       "submit": "发送消息",
@@ -126,6 +126,9 @@
       "email": "邮箱",
       "phone": "电话",
       "office": "办公室"
+    },
+    "social": {
+      "title": "社交媒体"
     },
     "join": {
       "title": "加入团队",

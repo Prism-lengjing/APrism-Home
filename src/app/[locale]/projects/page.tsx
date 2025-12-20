@@ -4,6 +4,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { useTranslations } from "next-intl";
+import Image from "next/image";
 
 export default function ProjectsPage() {
   const t = useTranslations('Projects');
@@ -11,22 +12,26 @@ export default function ProjectsPage() {
     {
       title: t('items.alpha.title'),
       category: t('items.alpha.category'),
-      description: t('items.alpha.description')
+      description: t('items.alpha.description'),
+      image: "/images/projects/APrism-Home.png" // 示例图片路径
     },
     {
       title: t('items.neon.title'),
       category: t('items.neon.category'),
-      description: t('items.neon.description')
+      description: t('items.neon.description'),
+      image: "/images/projects/Fur-Img-API_V2.png"
     },
     {
       title: t('items.quantum.title'),
       category: t('items.quantum.category'),
-      description: t('items.quantum.description')
+      description: t('items.quantum.description'),
+      image: "/images/projects/quantum-flow.jpg"
     },
     {
       title: t('items.aether.title'),
       category: t('items.aether.category'),
-      description: t('items.aether.description')
+      description: t('items.aether.description'),
+      image: "/images/projects/aether.jpg"
     }
   ];
 
@@ -49,8 +54,20 @@ export default function ProjectsPage() {
             <ScrollReveal key={index} delay={index * 0.1}>
               <Card className="group cursor-pointer h-full">
                 <div className="aspect-video bg-muted rounded-t-xl mb-6 flex items-center justify-center text-muted-foreground/50 text-4xl font-light overflow-hidden relative">
-                  <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                  Preview
+                  {project.image ? (
+                     <Image 
+                       src={project.image} 
+                       alt={project.title}
+                       fill
+                       className="object-cover transition-transform duration-500 group-hover:scale-105"
+                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                     />
+                  ) : (
+                    <>
+                      <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      Preview
+                    </>
+                  )}
                 </div>
                 <CardHeader>
                   <div className="text-xs font-medium text-accent mb-2 uppercase tracking-wider">

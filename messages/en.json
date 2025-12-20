@@ -63,19 +63,19 @@
     "members": {
       "alex": {
         "role": "Founder & Lead Designer",
-        "bio": "Obsessed with minimalism and functional aesthetics. Previously at Apple and Airbnb."
+        "bio": "Focused on front-end and back-end development and software and hardware operation and maintenance technologies"
       },
       "sarah": {
-        "role": "CTO",
-        "bio": "Full-stack architect with a passion for scalable systems and performance optimization."
+        "role": "Founder & Core Developer",
+        "bio": "Frontend Engineer & Expert at Slacking Off"
       },
       "jordan": {
-        "role": "Product Manager",
-        "bio": "Bridging the gap between user needs and technical feasibility."
+        "role": "Founder & Core Developer",
+        "bio": "Bot ("
       },
       "emily": {
-        "role": "Creative Director",
-        "bio": "Award-winning visual artist bringing stories to life through digital mediums."
+        "role": "None for now, welcome to join",
+        "bio": "None for now, welcome to join"
       }
     }
   },
@@ -84,22 +84,22 @@
     "description": "A selection of projects that showcase our passion for design and engineering.",
     "items": {
       "alpha": {
-        "title": "Project Alpha",
+        "title": "APrism-Home",
         "category": "Web Development",
-        "description": "A next-generation e-commerce platform built for scale and performance."
+        "description": "AperturePrism Team Official Website"
       },
       "neon": {
-        "title": "Neon Horizon",
-        "category": "Brand Identity",
-        "description": "Complete rebranding for a fintech startup, focusing on trust and modernity."
+        "title": "Fur-Img-API",
+        "category": "Backend Development",
+        "description": "Team Project: Random Image API Based on Node.js"
       },
       "quantum": {
-        "title": "Quantum Flow",
+        "title": "Quantum Flow(Simulated data)",
         "category": "Mobile App",
         "description": "Productivity application helping teams manage complex workflows effortlessly."
       },
       "aether": {
-        "title": "Aether",
+        "title": "Aether(Simulated data)",
         "category": "UI/UX Design",
         "description": "Design system and component library for an enterprise SaaS product."
       }
@@ -126,6 +126,9 @@
       "email": "Email",
       "phone": "Phone",
       "office": "Office"
+    },
+    "social": {
+      "title": "Social Media"
     },
     "join": {
       "title": "Join Our Team",

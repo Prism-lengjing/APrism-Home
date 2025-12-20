@@ -1,5 +1,7 @@
 # AperturePrism Official Website
 
+**Version**: V1.1.0
+
 [English](./README.en.md) | [简体中文](./README.md)
 
 This is a modern official website for AperturePrism, built with [Next.js](https://nextjs.org) 15, featuring an **Apple-Class Design Style** to showcase the team's innovation and design philosophy.
@@ -10,6 +12,7 @@ This is a modern official website for AperturePrism, built with [Next.js](https:
 - **Apple Design Style**: Minimalism, glassmorphism effects, and smooth animations.
 - **Responsive Design**: Perfectly adapted for both desktop and mobile devices.
 - **Dark Mode**: Automatically follows system settings or manual toggle.
+- **Contact Form**: Integrated email sending functionality via SMTP (e.g., Feishu, Gmail).
 - **High Performance**: Built on Next.js App Router and Server Components.
 - **Docker Deployment**: Production-optimized Docker image provided.
 
@@ -20,6 +23,7 @@ This is a modern official website for AperturePrism, built with [Next.js](https:
 - **Styling**: Tailwind CSS v4
 - **Animation**: Framer Motion
 - **Internationalization**: next-intl
+- **Email**: Nodemailer
 - **Icons**: Lucide React
 
 ## 🚀 Getting Started
@@ -28,6 +32,13 @@ First, install dependencies:
 
 ```bash
 npm install
+```
+
+Configure environment variables (optional, for email functionality):
+
+```bash
+cp .env.local.example .env.local
+# Edit .env.local to fill in SMTP details
 ```
 
 Then, run the development server:
@@ -54,6 +65,7 @@ src/
 │   ├── ui/             # Reusable UI components (Card, Section, etc.)
 │   ├── Navbar.tsx      # Navigation bar
 │   ├── Footer.tsx      # Footer
+│   ├── ContactForm.tsx # Contact form
 │   └── ...
 ├── i18n/               # i18n configuration
 ├── messages/           # Translation files (zh.json, en.json)
@@ -66,6 +78,11 @@ This project uses `next-intl` for internationalization management.
 - Translation files are located in `messages/zh.json` (Chinese) and `messages/en.json` (English).
 - Route structure is `/[locale]/path`, e.g., `/zh/about` or `/en/about`.
 - Default language configuration is in `src/i18n/request.ts`.
+
+## 📧 Email Configuration
+
+This project uses `nodemailer` to send emails. You need to configure an SMTP service (e.g., Feishu Enterprise Mail, Gmail).
+See `.env.local.example` for detailed configuration.
 
 ## 🐳 Docker Deployment
 

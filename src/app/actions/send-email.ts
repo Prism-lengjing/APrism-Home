@@ -66,20 +66,22 @@ export async function sendEmailAction(prevState: ActionState, formData: FormData
       from: `"${data.firstName} ${data.lastName}" <${process.env.SMTP_USER}>`, // Sender address (must be authenticated user usually)
       replyTo: data.email,
       to: process.env.CONTACT_EMAIL || process.env.SMTP_USER, // Receiver
-      subject: `New Contact Form Submission from ${data.firstName} ${data.lastName}`,
+      subject: `来自官网的新消息: ${data.firstName} ${data.lastName}`,
       text: `
-        Name: ${data.firstName} ${data.lastName}
-        Email: ${data.email}
+        姓名: ${data.firstName} ${data.lastName}
+        邮箱: ${data.email}
         
-        Message:
+        消息内容:
         ${data.message}
       `,
       html: `
-        <h3>New Contact Form Submission</h3>
-        <p><strong>Name:</strong> ${data.firstName} ${data.lastName}</p>
-        <p><strong>Email:</strong> ${data.email}</p>
-        <p><strong>Message:</strong></p>
-        <p>${data.message.replace(/\n/g, '<br>')}</p>
+        <h3>官网收到新的联系表单提交</h3>
+        <p><strong>姓名:</strong> ${data.firstName} ${data.lastName}</p>
+        <p><strong>邮箱:</strong> ${data.email}</p>
+        <p><strong>消息内容:</strong></p>
+        <p style="white-space: pre-wrap;">${data.message.replace(/\n/g, '<br>')}</p>
+        <hr />
+        <p style="font-size: 12px; color: #666;">此邮件由 AperturePrism 官网自动发送。</p>
       `,
     };
 

@@ -2,11 +2,20 @@ import { Section } from "@/components/ui/section";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { Mail, MapPin, Phone } from "lucide-react";
+import { FaGithub, FaDiscord, FaSlack, FaTelegramPlane, FaQq } from "react-icons/fa";
 import { useTranslations } from "next-intl";
 import { ContactForm } from "@/components/ContactForm";
 
 export default function ContactPage() {
   const t = useTranslations('Contact');
+
+  const socialLinks = [
+    { name: "GitHub", icon: FaGithub, href: "https://github.com/Prism-lengjing", color: "hover:text-[#333] dark:hover:text-white" },
+    { name: "QQ Group", icon: FaQq, href: "https://qm.qq.com/q/UYKp4asBa0", color: "hover:text-[#12B7F5]" },
+    { name: "Discord", icon: FaDiscord, href: "https://discord.gg/NmGyMkwfPT", color: "hover:text-[#5865F2]" },
+    { name: "Slack", icon: FaSlack, href: "https://join.slack.com/t/prism-mxy9862/shared_invite/zt-3llxiwe44-0~kEaQkbmOCuZgY_jYH2sA", color: "hover:text-[#4A154B]" },
+    { name: "Telegram", icon: FaTelegramPlane, href: "https://t.me/apertureprism", color: "hover:text-[#0088cc]" },
+  ];
 
   return (
     <main className="min-h-screen flex flex-col">
@@ -37,7 +46,7 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <p className="font-medium">{t('info.email')}</p>
-                    <p className="text-muted-foreground">hello@apertureprism.com</p>
+                    <p className="text-muted-foreground">hello@aprism.top</p>
                   </div>
                 </div>
                 <div className="flex items-start gap-4">
@@ -61,6 +70,25 @@ export default function ContactPage() {
                     </p>
                   </div>
                 </div>
+              </div>
+            </div>
+
+            {/* Social Links */}
+            <div>
+              <h3 className="text-apple-title mb-6">{t('social.title')}</h3>
+              <div className="flex flex-wrap gap-4">
+                {socialLinks.map((social) => (
+                  <a
+                    key={social.name}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={`p-4 rounded-xl bg-muted/50 border border-border/50 transition-all hover:scale-105 hover:bg-muted ${social.color}`}
+                    aria-label={social.name}
+                  >
+                    <social.icon className="w-6 h-6" />
+                  </a>
+                ))}
               </div>
             </div>
             
