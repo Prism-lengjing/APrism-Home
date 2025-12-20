@@ -1,0 +1,136 @@
+{
+  "Metadata": {
+    "title": "AperturePrism | 光圈棱镜",
+    "description": "AperturePrism is a collective of designers, engineers, and visionaries dedicated to refracting simple ideas into spectrums of possibility."
+  },
+  "Navbar": {
+    "brand": "APrism",
+    "links": {
+      "about": "About",
+      "team": "Team",
+      "projects": "Projects",
+      "contact": "Contact"
+    },
+    "cta": "Join Us"
+  },
+  "Hero": {
+    "welcome": "Welcome to AperturePrism",
+    "title_line1": "Innovation Refracted",
+    "title_line2": "Through Design",
+    "description": "We are a team of creators building digital experiences that blend precise engineering with emotional resonance.",
+    "cta_primary": "View Our Work",
+    "cta_secondary": "Contact Us"
+  },
+  "Footer": {
+    "slogan": "Innovation Refracted Through Design.",
+    "columns": {
+      "company": "Company",
+      "work": "Work",
+      "legal": "Legal"
+    },
+    "links": {
+      "about": "About",
+      "team": "Team",
+      "contact": "Contact",
+      "projects": "Projects",
+      "services": "Services",
+      "privacy": "Privacy",
+      "terms": "Terms"
+    },
+    "copyright": "© {year} AperturePrism. All rights reserved."
+  },
+  "About": {
+    "title": "Who We Are",
+    "description": "AperturePrism is a collective of designers, engineers, and visionaries dedicated to refracting simple ideas into spectrums of possibility.",
+    "cards": {
+      "precision": {
+        "title": "Precision",
+        "description": "We believe in pixel-perfect execution. Every detail matters, from the smallest interaction to the overall architecture."
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "We push boundaries by combining cutting-edge technology with timeless design principles."
+      },
+      "empathy": {
+        "title": "Empathy",
+        "description": "User experience is at the heart of everything we build. We design for humans, not just screens."
+      }
+    }
+  },
+  "Team": {
+    "title": "Meet the Team",
+    "description": "The minds behind AperturePrism. We are a diverse group of thinkers and doers.",
+    "members": {
+      "alex": {
+        "role": "Founder & Lead Designer",
+        "bio": "Obsessed with minimalism and functional aesthetics. Previously at Apple and Airbnb."
+      },
+      "sarah": {
+        "role": "CTO",
+        "bio": "Full-stack architect with a passion for scalable systems and performance optimization."
+      },
+      "jordan": {
+        "role": "Product Manager",
+        "bio": "Bridging the gap between user needs and technical feasibility."
+      },
+      "emily": {
+        "role": "Creative Director",
+        "bio": "Award-winning visual artist bringing stories to life through digital mediums."
+      }
+    }
+  },
+  "Projects": {
+    "title": "Our Work",
+    "description": "A selection of projects that showcase our passion for design and engineering.",
+    "items": {
+      "alpha": {
+        "title": "Project Alpha",
+        "category": "Web Development",
+        "description": "A next-generation e-commerce platform built for scale and performance."
+      },
+      "neon": {
+        "title": "Neon Horizon",
+        "category": "Brand Identity",
+        "description": "Complete rebranding for a fintech startup, focusing on trust and modernity."
+      },
+      "quantum": {
+        "title": "Quantum Flow",
+        "category": "Mobile App",
+        "description": "Productivity application helping teams manage complex workflows effortlessly."
+      },
+      "aether": {
+        "title": "Aether",
+        "category": "UI/UX Design",
+        "description": "Design system and component library for an enterprise SaaS product."
+      }
+    }
+  },
+  "Contact": {
+    "title": "Get in Touch",
+    "description": "Have a project in mind? Let's talk about how we can help you bring it to life.",
+    "form": {
+      "firstName": "First name",
+      "lastName": "Last name",
+      "email": "Email",
+      "message": "Message",
+      "submit": "Send Message",
+      "placeholders": {
+        "firstName": "Jane",
+        "lastName": "Doe",
+        "email": "jane@example.com",
+        "message": "Tell us about your project..."
+      }
+    },
+    "info": {
+      "title": "Contact Information",
+      "email": "Email",
+      "phone": "Phone",
+      "office": "Office"
+    },
+    "join": {
+      "title": "Join Our Team",
+      "description": "We are always looking for talented individuals to join our growing team.",
+      "cta": "View Open Positions →"
+    }
+  }
+}

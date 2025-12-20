@@ -1,0 +1,136 @@
+{
+  "Metadata": {
+    "title": "AperturePrism | 光圈棱镜",
+    "description": "光圈棱镜（AperturePrism）是一个致力于将简单想法折射为无限可能的设计师、工程师和梦想家团队。"
+  },
+  "Navbar": {
+    "brand": "光圈棱镜",
+    "links": {
+      "about": "关于",
+      "team": "团队",
+      "projects": "项目",
+      "contact": "联系"
+    },
+    "cta": "加入我们"
+  },
+  "Hero": {
+    "welcome": "欢迎来到光圈棱镜",
+    "title_line1": "创新的折射",
+    "title_line2": "源于设计",
+    "description": "我们是一个致力于打造将精密工程与情感共鸣相融合的数字体验的创作者团队。",
+    "cta_primary": "查看作品",
+    "cta_secondary": "联系我们"
+  },
+  "Footer": {
+    "slogan": "设计折射创新。",
+    "columns": {
+      "company": "公司",
+      "work": "作品",
+      "legal": "法律"
+    },
+    "links": {
+      "about": "关于我们",
+      "team": "团队介绍",
+      "contact": "联系方式",
+      "projects": "精选项目",
+      "services": "服务范围",
+      "privacy": "隐私政策",
+      "terms": "服务条款"
+    },
+    "copyright": "© {year} AperturePrism. 保留所有权利。"
+  },
+  "About": {
+    "title": "我们是谁",
+    "description": "光圈棱镜是一个致力于将简单想法折射为无限可能的设计师、工程师和梦想家团队。",
+    "cards": {
+      "precision": {
+        "title": "精准",
+        "description": "我们坚信像素级的完美执行。从最细微的交互到整体架构，每一个细节都至关重要。"
+      },
+      "innovation": {
+        "title": "创新",
+        "description": "我们将尖端技术与永恒的设计原则相结合，不断突破界限。"
+      },
+      "empathy": {
+        "title": "共情",
+        "description": "用户体验是我们构建一切的核心。我们为人类而设计，不仅仅是为了屏幕。"
+      }
+    }
+  },
+  "Team": {
+    "title": "遇见团队",
+    "description": "光圈棱镜背后的智慧大脑。我们是一群多元化的思考者和实干家。",
+    "members": {
+      "alex": {
+        "role": "创始人 & 首席设计师",
+        "bio": "痴迷于极简主义和功能美学。曾就职于 Apple 和 Airbnb。"
+      },
+      "sarah": {
+        "role": "CTO",
+        "bio": "全栈架构师，热衷于可扩展系统和性能优化。"
+      },
+      "jordan": {
+        "role": "产品经理",
+        "bio": "连接用户需求与技术可行性的桥梁。"
+      },
+      "emily": {
+        "role": "创意总监",
+        "bio": "屡获殊荣的视觉艺术家，通过数字媒介赋予故事生命。"
+      }
+    }
+  },
+  "Projects": {
+    "title": "我们的作品",
+    "description": "精选项目展示了我们对设计和工程的热情。",
+    "items": {
+      "alpha": {
+        "title": "Project Alpha",
+        "category": "Web 开发",
+        "description": "为规模和性能而生的下一代电子商务平台。"
+      },
+      "neon": {
+        "title": "Neon Horizon",
+        "category": "品牌识别",
+        "description": "一家金融科技初创公司的全面品牌重塑，专注于信任和现代感。"
+      },
+      "quantum": {
+        "title": "Quantum Flow",
+        "category": "移动应用",
+        "description": "帮助团队轻松管理复杂工作流的生产力应用。"
+      },
+      "aether": {
+        "title": "Aether",
+        "category": "UI/UX 设计",
+        "description": "面向企业级 SaaS 产品的设计系统和组件库。"
+      }
+    }
+  },
+  "Contact": {
+    "title": "取得联系",
+    "description": "有项目想法？让我们谈谈如何帮助您将其变为现实。",
+    "form": {
+      "firstName": "名",
+      "lastName": "姓",
+      "email": "邮箱",
+      "message": "留言",
+      "submit": "发送消息",
+      "placeholders": {
+        "firstName": "张",
+        "lastName": "三",
+        "email": "zhangsan@example.com",
+        "message": "告诉我们关于您的项目..."
+      }
+    },
+    "info": {
+      "title": "联系信息",
+      "email": "邮箱",
+      "phone": "电话",
+      "office": "办公室"
+    },
+    "join": {
+      "title": "加入团队",
+      "description": "我们一直在寻找有才华的人加入我们不断成长的团队。",
+      "cta": "查看开放职位 →"
+    }
+  }
+}
