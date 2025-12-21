@@ -1,6 +1,6 @@
 # AperturePrism Official Website
 
-**Version**: V1.1.0
+**Version**: V1.1.1
 
 [English](./README.en.md) | [简体中文](./README.md)
 
@@ -10,9 +10,11 @@ This is a modern official website for AperturePrism, built with [Next.js](https:
 
 - **Internationalization (i18n)**: Supports Simplified Chinese (zh) and English (en), with Chinese as the default language.
 - **Apple Design Style**: Minimalism, glassmorphism effects, and smooth animations.
-- **Responsive Design**: Perfectly adapted for both desktop and mobile devices.
+- **Responsive Design**: Perfectly adapted for both desktop and mobile devices, including mobile hamburger menu.
 - **Dark Mode**: Automatically follows system settings or manual toggle.
 - **Contact Form**: Integrated email sending functionality via SMTP (e.g., Feishu, Gmail).
+- **Careers Page**: Dedicated section for job listings and application process.
+- **Legal Pages**: Complete Privacy Policy and Terms of Service pages.
 - **High Performance**: Built on Next.js App Router and Server Components.
 - **Docker Deployment**: Production-optimized Docker image provided.
 
@@ -24,7 +26,7 @@ This is a modern official website for AperturePrism, built with [Next.js](https:
 - **Animation**: Framer Motion
 - **Internationalization**: next-intl
 - **Email**: Nodemailer
-- **Icons**: Lucide React
+- **Icons**: Lucide React, React Icons
 
 ## 🚀 Getting Started
 
@@ -56,9 +58,12 @@ src/
 ├── app/
 │   └── [locale]/       # Internationalized route pages
 │       ├── about/      # About page
+│       ├── careers/    # Careers page
 │       ├── contact/    # Contact page
+│       ├── privacy/    # Privacy Policy
 │       ├── projects/   # Projects page
 │       ├── team/       # Team page
+│       ├── terms/      # Terms of Service
 │       ├── page.tsx    # Home page
 │       └── layout.tsx  # Root layout
 ├── components/         # React components

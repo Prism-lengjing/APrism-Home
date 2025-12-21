@@ -1,3 +1,4 @@
+import { Link } from "@/i18n/navigation";
 import { Section } from "@/components/ui/section";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -97,9 +98,11 @@ export default function ContactPage() {
               <p className="text-sm text-muted-foreground mb-4">
                 {t('join.description')}
               </p>
-              <button className="text-sm font-medium text-accent hover:underline">
-                {t('join.cta')}
-              </button>
+              <Link href="/careers">
+                <button className="text-sm font-medium text-accent hover:underline cursor-pointer">
+                  {t('join.cta')}
+                </button>
+              </Link>
             </div>
           </div>
         </div>

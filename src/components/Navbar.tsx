@@ -6,9 +6,12 @@ import { useState, useEffect } from "react";
 import { ModeToggle } from "./ModeToggle";
 import { useTranslations, useLocale } from "next-intl";
 import { usePathname, useRouter } from "next/navigation";
+import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const t = useTranslations('Navbar');
   const locale = useLocale();
   const router = useRouter();
@@ -21,6 +24,11 @@ export function Navbar() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Close menu when route changes
+  useEffect(() => {
+    setIsMenuOpen(false);
+  }, [pathname]);
 
   const switchLocale = () => {
     const newLocale = locale === 'zh' ? 'en' : 'zh';
@@ -41,12 +49,14 @@ export function Navbar() {
         <Link 
           href="/" 
           className={cn(
-            "text-apple-title font-bold tracking-tight hover:opacity-80 transition-opacity",
-            scrolled ? "text-white" : "text-foreground"
+            "text-apple-title font-bold tracking-tight hover:opacity-80 transition-opacity z-50",
+            scrolled || isMenuOpen ? "text-white" : "text-foreground"
           )}
         >
           {t('brand')}
         </Link>
+
+        {/* Desktop Navigation */}
         <nav className="hidden md:flex gap-8">
           {['about', 'team', 'projects', 'contact'].map((item) => (
             <Link
@@ -63,24 +73,73 @@ export function Navbar() {
             </Link>
           ))}
         </nav>
-        <div className="flex items-center gap-4">
+
+        <div className="flex items-center gap-4 z-50">
             <button 
               onClick={switchLocale}
               className={cn(
                 "text-sm font-medium transition-colors px-2 py-1 rounded hover:bg-white/10",
-                scrolled ? "text-white" : "text-foreground hover:bg-black/5"
+                (scrolled || isMenuOpen) ? "text-white" : "text-foreground hover:bg-black/5"
               )}
             >
               {locale === 'zh' ? 'EN' : '中'}
             </button>
-            <ModeToggle className={scrolled ? "text-white hover:bg-white/10" : "text-foreground hover:bg-black/5"} />
+            <div className={cn((scrolled || isMenuOpen) ? "text-white" : "text-foreground")}>
+              <ModeToggle className={cn(
+                "hover:bg-transparent", 
+                (scrolled || isMenuOpen) ? "text-white hover:text-white/80" : "text-foreground hover:text-foreground/80"
+              )} />
+            </div>
             <Link href="/contact" className="hidden md:block">
                 <button className="glass-button-primary text-sm font-medium cursor-pointer">
                 {t('cta')}
                 </button>
             </Link>
+
+            {/* Mobile Menu Button */}
+            <button 
+              className={cn(
+                "md:hidden p-2 -mr-2",
+                (scrolled || isMenuOpen) ? "text-white" : "text-foreground"
+              )}
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
+            >
+              {isMenuOpen ? <X /> : <Menu />}
+            </button>
         </div>
       </div>
+
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {isMenuOpen && (
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -20 }}
+            transition={{ duration: 0.2 }}
+            className="fixed inset-0 bg-black/95 backdrop-blur-xl z-40 pt-24 px-6 md:hidden"
+          >
+            <nav className="flex flex-col gap-6 text-center">
+              {['about', 'team', 'projects', 'contact'].map((item) => (
+                <Link
+                  key={item}
+                  href={`/${item}`}
+                  className="text-2xl font-medium text-white/90 hover:text-white transition-colors py-2"
+                >
+                  {t(`links.${item}`)}
+                </Link>
+              ))}
+              <div className="mt-8 flex justify-center">
+                <Link href="/contact" className="w-full">
+                  <button className="glass-button-primary w-full py-4 text-lg font-medium cursor-pointer">
+                    {t('cta')}
+                  </button>
+                </Link>
+              </div>
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

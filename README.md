@@ -1,6 +1,6 @@
 # AperturePrism 官网 (AperturePrism Official Website)
 
-**版本**: V1.1.0
+**版本**: V1.1.1
 
 [English](./README.en.md) | [简体中文](./README.md)
 
@@ -10,9 +10,11 @@
 
 - **国际化 (i18n)**: 支持简体中文 (zh) 和英文 (en) 双语切换，默认语言为中文。
 - **Apple 设计风格**: 极简主义，玻璃态效果，流畅的动画。
-- **响应式设计**: 完美适配桌面端和移动端。
+- **响应式设计**: 完美适配桌面端和移动端，包括移动端汉堡菜单。
 - **深色模式**: 自动跟随系统或手动切换深浅色主题。
 - **联系表单**: 集成邮件发送功能，支持 SMTP 配置（如飞书、Gmail）。
+- **招聘页面**: 独立的招聘信息展示与申请流程。
+- **法律条款**: 完整的隐私政策和服务条款页面。
 - **高性能**: 基于 Next.js App Router 和 Server Components 构建。
 - **Docker 部署**: 提供生产环境优化的 Docker 镜像。
 
@@ -24,7 +26,7 @@
 - **动画**: Framer Motion
 - **国际化**: next-intl
 - **邮件**: Nodemailer
-- **图标**: Lucide React
+- **图标**: Lucide React, React Icons
 
 ## 🚀 快速开始
 
@@ -56,9 +58,12 @@ src/
 ├── app/
 │   └── [locale]/       # 国际化路由页面
 │       ├── about/      # 关于页面
+│       ├── careers/    # 招聘页面
 │       ├── contact/    # 联系页面
+│       ├── privacy/    # 隐私政策
 │       ├── projects/   # 项目页面
 │       ├── team/       # 团队页面
+│       ├── terms/      # 服务条款
 │       ├── page.tsx    # 首页
 │       └── layout.tsx  # 根布局
 ├── components/         # React 组件

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/navigation";
 
 export function Hero() {
   const t = useTranslations('Hero');
@@ -42,12 +43,16 @@ export function Hero() {
           transition={{ duration: 0.8, delay: 0.4, ease: [0.4, 0.0, 0.2, 1] }}
           className="flex flex-col sm:flex-row gap-4 mt-8"
         >
-          <button className="glass-button-primary text-base px-8 py-3 font-medium cursor-pointer">
-            {t('cta_primary')}
-          </button>
-          <button className="glass-button text-base px-8 py-3 font-medium cursor-pointer bg-white/50 dark:bg-black/50">
-            {t('cta_secondary')}
-          </button>
+          <Link href="/projects">
+            <button className="glass-button-primary text-base px-8 py-3 font-medium cursor-pointer w-full sm:w-auto">
+              {t('cta_primary')}
+            </button>
+          </Link>
+          <Link href="/contact">
+            <button className="glass-button text-base px-8 py-3 font-medium cursor-pointer bg-white/50 dark:bg-black/50 w-full sm:w-auto">
+              {t('cta_secondary')}
+            </button>
+          </Link>
         </motion.div>
       </div>
     </section>
