@@ -35,7 +35,8 @@
       "projects": "Projects",
       "services": "Services",
       "privacy": "Privacy",
-      "terms": "Terms"
+      "terms": "Terms",
+      "friends": "Friend Links"
     },
     "copyright": "© {year} AperturePrism. All rights reserved."
   },
@@ -142,8 +143,30 @@
         "content": "This website and its content are provided 'as is' without any warranties of any kind, express or implied."
       }
     }
-  }
-}
+  },
+  "Friends": {
+    "title": "Friend Links",
+    "description": "Friends and partners of AperturePrism.",
+    "items": {
+      "nextjs": {
+        "name": "Next.js",
+        "description": "The React Framework for the Web"
+      },
+      "vercel": {
+        "name": "Vercel",
+        "description": "Develop. Preview. Ship."
+      },
+      "tailwindcss": {
+        "name": "Tailwind CSS",
+        "description": "Rapidly build modern websites without ever leaving your HTML"
+      },
+      "Amethyst": {
+        "name": "Amethyst紫水晶",
+        "description": "High-Performance Cloud Storage and Next-Generation AI API Services"
+      }
+    }
+  },
+  "Contact": {
     "title": "Get in Touch",
     "description": "Have a project in mind? Let's talk about how we can help you bring it to life.",
     "form": {

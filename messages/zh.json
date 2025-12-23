@@ -35,7 +35,8 @@
       "projects": "精选项目",
       "services": "服务范围",
       "privacy": "隐私政策",
-      "terms": "服务条款"
+      "terms": "服务条款",
+      "friends": "友情链接"
     },
     "copyright": "© {year} AperturePrism. 保留所有权利。"
   },
@@ -102,6 +103,29 @@
         "title": "Aether（模拟数据）",
         "category": "UI/UX 设计",
         "description": "面向企业级 SaaS 产品的设计系统和组件库。"
+      }
+    }
+  },
+  "Friends": {
+    "title": "友情链接",
+    "description": "光圈棱镜的朋友们和合作伙伴。",
+    "items": {
+      "nextjs": {
+        "name": "Next.js",
+        "description": "Web 的 React 框架"
+      },
+      "vercel": {
+        "name": "Vercel",
+        "description": "开发、预览、发布"
+      },
+      "tailwindcss": {
+        "name": "Tailwind CSS",
+        "description": "无需离开 HTML 即可快速构建现代网站"
+      },
+        "Amethyst": {
+        "name": "Amethyst紫水晶",
+        "description": "性能云存储与下一代 AI API 服务."
+      
       }
     }
   },

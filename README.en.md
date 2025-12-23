@@ -1,6 +1,6 @@
 # AperturePrism Official Website
 
-**Version**: V1.1.1
+**Version**: V1.1.2
 
 [English](./README.en.md) | [简体中文](./README.md)
 

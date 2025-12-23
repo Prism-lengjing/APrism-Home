@@ -24,6 +24,26 @@ const nextConfig: NextConfig = {
         protocol: 'http',
         hostname: 'q.qlogo.cn',
       },
+      {
+        protocol: 'https',
+        hostname: 'assets.vercel.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'tailwindcss.com',
+      },
+      {
+        protocol: 'https',
+        hostname: '*.amethyst.ltd',
+      },
+      {
+        protocol: 'https',
+        hostname: '*.vercel.app',
+      },
+      {
+        protocol: 'https',
+        hostname: '*.tailwindcss.cn',
+      },
     ],
   },
 };

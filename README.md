@@ -1,6 +1,6 @@
 # AperturePrism 官网 (AperturePrism Official Website)
 
-**版本**: V1.1.1
+**版本**: V1.1.2
 
 [English](./README.en.md) | [简体中文](./README.md)
 
