@@ -60,6 +60,7 @@ src/
 │       ├── about/      # 关于页面
 │       ├── careers/    # 招聘页面
 │       ├── contact/    # 联系页面
+│       ├── friends/    # 友情链接
 │       ├── privacy/    # 隐私政策
 │       ├── projects/   # 项目页面
 │       ├── team/       # 团队页面

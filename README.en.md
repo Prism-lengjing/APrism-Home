@@ -60,6 +60,7 @@ src/
 │       ├── about/      # About page
 │       ├── careers/    # Careers page
 │       ├── contact/    # Contact page
+│       ├── friends/    # Friend Links
 │       ├── privacy/    # Privacy Policy
 │       ├── projects/   # Projects page
 │       ├── team/       # Team page
