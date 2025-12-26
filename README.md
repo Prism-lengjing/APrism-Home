@@ -1,10 +1,35 @@
 # AperturePrism 官网 (AperturePrism Official Website)
 
-**版本**: V1.1.2
+**版本**: V1.2.0
 
 [English](./README.en.md) | [简体中文](./README.md)
 
 这是一个基于 [Next.js](https://nextjs.org) 15 的现代化团队官网，采用 **Apple-Class 设计风格**，旨在展示 AperturePrism 团队的创新与设计理念。
+
+## 📅 更新日志 (Changelog)
+
+### V1.2.0 (Current)
+- 🚀 **团队页面重构**: 新增“旗下团队”和“共创团队”板块，采用富媒体卡片展示。
+- ✨ **共创计划**: 新增共创计划横幅，引导合作伙伴加入。
+- 🆕 **新增页面**: 创建了 `/services` 服务范围页面，完善了站点结构。
+- 🔗 **导航栏更新**: 新增“友链”入口，添加品牌 Logo 图片。
+- 🐛 **修复**: 修复了页脚“服务范围”链接无法访问的问题。
+- 🎨 **UI 优化**: 优化了卡片图片显示模式 (Contain)，增大了外部链接按钮触控区域。
+- 🔧 **配置更新**: 新增 `furcraft.top` 图片域名白名单。
+- 📝 **文档更新**: 新增“页面与内容修改指南”。
+
+### V1.1.2
+- ✨ **新增友情链接页面**: 创建了 `/friends` 页面，展示合作伙伴和友链。
+- 🌍 **友链国际化**: 友链数据支持中英双语切换。
+- 🔧 **页脚更新**: 在 Footer 中添加了友情链接入口。
+
+### V1.0.0
+- 🎉 **初始发布**: AperturePrism 官网正式上线。
+- ⚛️ **核心架构**: 基于 Next.js 15 App Router 构建，使用 Server Components 优化性能。
+- 🎨 **设计语言**: 确立 Apple-Class 极简设计风格，实现玻璃态和流畅动画效果。
+- 🌍 **国际化**: 支持中英双语 (i18n) 切换。
+- 📱 **响应式**: 完美适配桌面端和移动端设备。
+- 📧 **功能**: 集成 SMTP 邮件发送功能的联系表单。
 
 ## ✨ 特性
 
@@ -27,6 +52,36 @@
 - **国际化**: next-intl
 - **邮件**: Nodemailer
 - **图标**: Lucide React, React Icons
+
+## 📝 页面与内容修改指南
+
+因为本项目使用了**国际化 (i18n)**，所以页面内容的修改位置分两部分：**文字内容** 和 **页面结构**。
+
+### 1. 修改文字内容 (最常用)
+如果你只是想改文字（比如把 "About Us" 改成 "关于我们"，或者修改简介文案），请修改 `messages` 文件夹下的 JSON 文件：
+
+*   **中文内容**: 编辑 `messages/zh.json`
+*   **英文内容**: 编辑 `messages/en.json`
+
+### 2. 修改页面结构/布局
+如果你想增加新的模块、修改排版、或者添加图片，需要修改对应的页面代码文件 (`src/app/[locale]/...`)：
+
+| 页面名称 | 对应文件路径 | 修改说明 |
+| :--- | :--- | :--- |
+| **关于 (About)** | `src/app/[locale]/about/page.tsx` | 修改关于我们页面的布局 |
+| **团队 (Team)** | `src/app/[locale]/team/page.tsx` | **修改成员名字**、添加旗下团队、共创计划板块 |
+| **项目 (Projects)** | `src/app/[locale]/projects/page.tsx` | **修改项目图片**、调整项目卡片布局 |
+| **友情链接 (Friends)** | `src/app/[locale]/friends/page.tsx` | **修改友链Logo**、调整友链展示方式 |
+| **联系 (Contact)** | `src/app/[locale]/contact/page.tsx` | 修改联系表单、社交媒体链接 |
+| **招聘 (Careers)** | `src/app/[locale]/careers/page.tsx` | 修改职位列表结构 |
+
+### 3. 修改图片
+*   **团队成员头像**: 放在 `public/images/team/` 目录。
+*   **项目封面图**: 放在 `public/images/projects/` 目录。
+*   **Logo/图标**: 放在 `public/` 根目录。
+
+### 4. 社交媒体链接
+修改 `src/app/[locale]/contact/page.tsx` 中的 `socialLinks` 数组，替换 `href` 为你的真实链接。
 
 ## 🚀 快速开始
 

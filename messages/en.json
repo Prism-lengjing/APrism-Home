@@ -9,6 +9,7 @@
       "about": "About",
       "team": "Team",
       "projects": "Projects",
+      "friends": "Friends",
       "contact": "Contact"
     },
     "cta": "Join Us"
@@ -72,12 +73,51 @@
       },
       "jordan": {
         "role": "Founder & Core Developer",
-        "bio": "Bot ("
+        "bio": "I am Qin Shi Huang, give me 50("
       },
       "emily": {
         "role": "None for now, welcome to join",
         "bio": "None for now, welcome to join"
       }
+    },
+    "subTeams": {
+      "title": "Affiliated Teams",
+      "items": {
+        "lab": {
+          "name": "Quantum Flow (Simulated Data)",
+          "description": "Focused on frontier technology exploration, experimental project incubation, and infrastructure building.",
+          "category": "R&D",
+          "website": "https://lab.apertureprism.com"
+        },
+        "design": {
+          "name": "Quantum Flow (Simulated Data)",
+          "description": "Responsible for visual identity systems, user experience design, and creative interaction implementation.",
+          "category": "Design",
+          "website": "https://design.apertureprism.com"
+        }
+      }
+    },
+    "coCreationTeams": {
+      "title": "Co-creation Teams",
+      "items": {
+        "community": {
+          "name": "Amethyst紫水晶",
+          "description": "Committed to accelerating AI adoption and providing highly available, highly scalable cloud storage services.",
+          "category": "Team",
+          "website": "https://www.amethyst.ltd/"
+        },
+        "partners": {
+          "name": "FurCraft",
+          "description": "Focus on the development and maintenance of furry-related projects.",
+          "category": "Team",
+          "website": "https://furcraft.top/"
+        }
+      }
+    },
+    "coCreation": {
+      "title": "Co-creation & Subsidiary Plans",
+      "description": "We are looking for like-minded partners. If you have unique skills or ideas, we welcome you to join our co-creation and affiliated ecosystem, share resources, and grow together.",
+      "cta": "Apply to Join"
     }
   },
   "Projects": {
@@ -103,6 +143,28 @@
         "title": "Aether(Simulated data)",
         "category": "UI/UX Design",
         "description": "Design system and component library for an enterprise SaaS product."
+      }
+    }
+  },
+  "Services": {
+    "title": "Our Services",
+    "description": "We provide comprehensive digital solutions to help your business grow.",
+    "items": {
+      "web": {
+        "title": "Web Development",
+        "description": "Building high-performance, responsive modern websites and web apps."
+      },
+      "mobile": {
+        "title": "Mobile App",
+        "description": "Creating native-like iOS and Android mobile applications."
+      },
+      "design": {
+        "title": "UI/UX Design",
+        "description": "User-centric design for beautiful and intuitive interfaces."
+      },
+      "consulting": {
+        "title": "Tech Consulting",
+        "description": "Professional architecture design and digital transformation consulting."
       }
     }
   },
@@ -163,6 +225,10 @@
       "Amethyst": {
         "name": "Amethyst紫水晶",
         "description": "High-Performance Cloud Storage and Next-Generation AI API Services"
+      },
+      "FurCraft": {
+        "name": "FurCraft",
+        "description": "Focus on the development and maintenance of furry-related projects."
       }
     }
   },

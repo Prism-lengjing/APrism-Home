@@ -44,6 +44,14 @@ const nextConfig: NextConfig = {
         protocol: 'https',
         hostname: '*.tailwindcss.cn',
       },
+      {
+        protocol: 'https',
+        hostname: '*.furcraft.top',
+      },
+      {
+        protocol: 'https',
+        hostname: 'furcraft.top',
+      },
     ],
   },
 };

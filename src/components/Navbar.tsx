@@ -1,6 +1,7 @@
 "use client";
 
 import { Link } from "@/i18n/navigation";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
 import { ModeToggle } from "./ModeToggle";
@@ -45,20 +46,27 @@ export function Navbar() {
           : "bg-transparent py-5"
       )}
     >
-      <div className="container-apple flex items-center justify-between">
+      <div className="container-apple flex items-center justify-between mx-auto">
         <Link 
           href="/" 
           className={cn(
-            "text-apple-title font-bold tracking-tight hover:opacity-80 transition-opacity z-50",
+            "flex items-center gap-2 text-apple-title font-bold tracking-tight hover:opacity-80 transition-opacity z-50",
             scrolled || isMenuOpen ? "text-white" : "text-foreground"
           )}
         >
+          <Image
+            src="/images/team/logo.png"
+            alt="Logo"
+            width={32}
+            height={32}
+            className="object-contain"
+          />
           {t('brand')}
         </Link>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex gap-8">
-          {['about', 'team', 'projects', 'contact'].map((item) => (
+          {['about', 'team', 'projects', 'friends', 'contact'].map((item) => (
             <Link
               key={item}
               href={`/${item}`}
@@ -120,9 +128,10 @@ export function Navbar() {
             className="fixed inset-0 bg-black/95 backdrop-blur-xl z-40 pt-24 px-6 md:hidden"
           >
             <nav className="flex flex-col gap-6 text-center">
-              {['about', 'team', 'projects', 'contact'].map((item) => (
+              {['about', 'team', 'projects', 'friends', 'contact'].map((item) => (
                 <Link
                   key={item}
+                  onClick={() => setIsMenuOpen(false)}
                   href={`/${item}`}
                   className="text-2xl font-medium text-white/90 hover:text-white transition-colors py-2"
                 >

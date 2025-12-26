@@ -1,10 +1,35 @@
 # AperturePrism Official Website
 
-**Version**: V1.1.2
+**Version**: V1.2.0
 
 [English](./README.en.md) | [简体中文](./README.md)
 
 This is a modern official website for AperturePrism, built with [Next.js](https://nextjs.org) 15, featuring an **Apple-Class Design Style** to showcase the team's innovation and design philosophy.
+
+## 📅 Changelog
+
+### V1.2.0 (Current)
+- 🚀 **Team Page Refactor**: Added "Affiliated Teams" and "Co-creation Teams" sections with rich media cards.
+- ✨ **Co-creation Plan**: Added Co-creation Plan banner to invite partners.
+- 🆕 **New Page**: Created `/services` page to showcase core business areas.
+- 🔗 **Navbar Update**: Added "Friend Links" entry and brand Logo.
+- 🐛 **Fix**: Resolved issue where Footer "Services" link was broken.
+- 🎨 **UI Improvements**: Optimized card image display (Contain mode) and enlarged external link buttons.
+- 🔧 **Config Update**: Added `furcraft.top` to image domain whitelist.
+- 📝 **Docs Update**: Added "Content & Layout Modification Guide".
+
+### V1.1.2
+- ✨ **Friend Links Page**: Added `/friends` page.
+- 🌍 **Friends i18n**: Bilingual support for friend links.
+- 🔧 **Footer Update**: Added Friend Links entry.
+
+### V1.0.0
+- 🎉 **Initial Release**: Official launch of AperturePrism website.
+- ⚛️ **Core Architecture**: Built with Next.js 15 App Router and Server Components.
+- 🎨 **Design Language**: Established Apple-Class minimalist style with glassmorphism and smooth animations.
+- 🌍 **Internationalization**: Full support for Chinese/English (i18n) switching.
+- 📱 **Responsive**: Fully adapted for desktop and mobile devices.
+- 📧 **Features**: Integrated contact form with SMTP email sending capability.
 
 ## ✨ Features
 
@@ -27,6 +52,36 @@ This is a modern official website for AperturePrism, built with [Next.js](https:
 - **Internationalization**: next-intl
 - **Email**: Nodemailer
 - **Icons**: Lucide React, React Icons
+
+## 📝 Content & Layout Modification Guide
+
+Since this project uses **Internationalization (i18n)**, modifications are split into two parts: **Text Content** and **Page Structure**.
+
+### 1. Modifying Text Content (Most Common)
+If you just want to change text (e.g., change "About Us" to "Who We Are", or update descriptions), modify the JSON files in the `messages` folder:
+
+*   **Chinese Content**: Edit `messages/zh.json`
+*   **English Content**: Edit `messages/en.json`
+
+### 2. Modifying Page Structure/Layout
+If you want to add new modules, change layout, or add images, you need to modify the corresponding page code files (`src/app/[locale]/...`):
+
+| Page Name | File Path | Modification Notes |
+| :--- | :--- | :--- |
+| **About** | `src/app/[locale]/about/page.tsx` | Modify About page layout |
+| **Team** | `src/app/[locale]/team/page.tsx` | **Change member names**, add affiliated teams, co-creation sections |
+| **Projects** | `src/app/[locale]/projects/page.tsx` | **Change project images**, adjust project card layout |
+| **Friends** | `src/app/[locale]/friends/page.tsx` | **Change friend logos**, adjust link display |
+| **Contact** | `src/app/[locale]/contact/page.tsx` | Modify contact form, social media links |
+| **Careers** | `src/app/[locale]/careers/page.tsx` | Modify job listing structure |
+
+### 3. Modifying Images
+*   **Team Member Avatars**: Place in `public/images/team/` directory.
+*   **Project Covers**: Place in `public/images/projects/` directory.
+*   **Logos/Icons**: Place in `public/` root directory.
+
+### 4. Social Media Links
+Modify the `socialLinks` array in `src/app/[locale]/contact/page.tsx`, replacing `href` with your actual links.
 
 ## 🚀 Getting Started
 

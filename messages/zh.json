@@ -9,6 +9,7 @@
       "about": "关于",
       "team": "团队",
       "projects": "项目",
+      "friends": "友链",
       "contact": "联系"
     },
     "cta": "加入我们"
@@ -72,12 +73,51 @@
       },
       "jordan": {
         "role": "创始人 & 核心开发者",
-        "bio": "入机（"
+        "bio": "我是秦始皇 v我50（"
       },
       "emily": {
         "role": "暂无 欢迎加入",
         "bio": "暂无 欢迎加入"
       }
+    },
+    "subTeams": {
+      "title": "旗下团队",
+      "items": {
+        "lab": {
+          "name": "Quantum Flow（模拟数据）",
+          "description": "专注于前沿技术探索、实验性项目孵化与技术基础设施构建。",
+          "category": "研发",
+          "website": "https://lab.apertureprism.com"
+        },
+        "design": {
+          "name": "Quantum Flow（模拟数据）",
+          "description": "负责视觉识别系统、用户体验设计与创意交互的落地。",
+          "category": "设计",
+          "website": "https://design.apertureprism.com"
+        }
+      }
+    },
+    "coCreationTeams": {
+      "title": "共创团队",
+      "items": {
+        "community": {
+          "name": "Amethyst紫水晶",
+          "description": "致力于加速AI落地 & 提供高可用、高可扩展性的云存储服务。",
+          "category": "团队",
+          "website": "https://www.amethyst.ltd/"
+        },
+        "partners": {
+          "name": "FurCraft",
+          "description": "专注于furry相关项目的开发与维护。",
+          "category": "团队",
+          "website": "https://furcraft.top/"
+        }
+      }
+    },
+    "coCreation": {
+      "title": "共创&旗下计划",
+      "description": "我们正在寻找志同道合的合作伙伴。如果您有独特的技能或想法，欢迎加入我们的共创&旗下生态，共享资源，共同成长。",
+      "cta": "申请加入"
     }
   },
   "Projects": {
@@ -126,6 +166,32 @@
         "name": "Amethyst紫水晶",
         "description": "性能云存储与下一代 AI API 服务."
       
+      },
+      "FurCraft": {
+        "name": "FurCraft",
+        "description": "专注于furry相关项目的开发与维护。"
+      }
+    }
+  },
+  "Services": {
+    "title": "服务范围",
+    "description": "我们提供全方位的数字解决方案，助力您的业务增长。",
+    "items": {
+      "web": {
+        "title": "Web 开发",
+        "description": "构建高性能、响应式的现代化网站和 Web 应用。"
+      },
+      "mobile": {
+        "title": "移动应用",
+        "description": "打造原生体验的 iOS 和 Android 移动应用程序。"
+      },
+      "design": {
+        "title": "UI/UX 设计",
+        "description": "以用户为中心，设计美观且易用的交互界面。"
+      },
+      "consulting": {
+        "title": "技术咨询",
+        "description": "提供专业的架构设计和数字化转型咨询服务。"
       }
     }
   },

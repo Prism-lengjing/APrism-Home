@@ -29,6 +29,11 @@ export default function FriendsPage() {
       id: "Amethyst",
       url: "https://www.amethyst.ltd/",
       logo: "https://docs.amethyst.ltd/icon.png"
+    },
+    {
+      id: "FurCraft",
+      url: "https://furcraft.top/",
+      logo: "https://furcraft.top/logo.png"
     }
   ];
 
