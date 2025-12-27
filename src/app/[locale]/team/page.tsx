@@ -30,6 +30,12 @@ export default function TeamPage() {
       image: "https://q1.qlogo.cn/g?b=qq&nk=1280993766&s=640"
     },
     {
+      name: "不知道先生stralightnwn",
+      role: t('members.stralightnwn.role'),
+      bio: t('members.stralightnwn.bio'),
+      image: "https://q1.qlogo.cn/g?b=qq&nk=1287830257&s=640"
+    },
+    {
       name: "暂无 欢迎加入\nNone for now, welcome to join",
       role: t('members.emily.role'),
       bio: t('members.emily.bio'),
