@@ -8,7 +8,14 @@ This is a modern official website for AperturePrism, built with [Next.js](https:
 
 ## 📅 Changelog
 
-### V1.2.0 (Current)
+### V1.3.0 (Current)
+- 📰 **Blog System**: Added `/blog` list and details pages with category filtering, reading progress bar, and sidebar.
+- 🚀 **Project Details**: Brand new project details page featuring stats dashboard, gallery, and key features list.
+- 🎨 **UI Components**: Added Shadcn UI style Button component, optimized 404 page visual.
+- 🐛 **Fix**: Resolved runtime errors with dynamic route params unpacking in Next.js 15+.
+- 🔧 **Engineering**: Upgraded `package.json` version, updated documentation guide.
+
+### V1.2.0
 - 🚀 **Team Page Refactor**: Added "Affiliated Teams" and "Co-creation Teams" sections with rich media cards.
 - ✨ **Co-creation Plan**: Added Co-creation Plan banner to invite partners.
 - 🆕 **New Page**: Created `/services` page to showcase core business areas.
@@ -69,10 +76,13 @@ If you want to add new modules, change layout, or add images, you need to modify
 | Page Name | File Path | Modification Notes |
 | :--- | :--- | :--- |
 | **About** | `src/app/[locale]/about/page.tsx` | Modify About page layout |
-| **Team** | `src/app/[locale]/team/page.tsx` | **Change member names**, add affiliated teams, co-creation sections |
-| **Projects** | `src/app/[locale]/projects/page.tsx` | **Change project images**, adjust project card layout |
-| **Friends** | `src/app/[locale]/friends/page.tsx` | **Change friend logos**, adjust link display |
-| **Contact** | `src/app/[locale]/contact/page.tsx` | Modify contact form, social media links |
+| **Team** | `src/app/[locale]/team/page.tsx` | Modify member names, add sub-teams/co-creation sections |
+| **Projects** | `src/app/[locale]/projects/page.tsx` | Change project images, adjust card layout |
+| **Project Details** | `src/app/[locale]/projects/[slug]/page.tsx` | Modify details layout, **stats logic**, gallery |
+| **Friends** | `src/app/[locale]/friends/page.tsx` | Change logos, adjust link display |
+| **Blog List** | `src/app/[locale]/blog/page.tsx` | Modify list layout, filter logic |
+| **Blog Post** | `src/app/[locale]/blog/[slug]/page.tsx` | Modify article layout, **sidebar**, progress bar |
+| **Contact** | `src/app/[locale]/contact/page.tsx` | Modify contact form, social links |
 | **Careers** | `src/app/[locale]/careers/page.tsx` | Modify job listing structure |
 
 ### 3. Modifying Images

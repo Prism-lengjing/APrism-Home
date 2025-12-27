@@ -10,6 +10,7 @@
       "team": "Team",
       "projects": "Projects",
       "friends": "Friends",
+      "blog": "Blog",
       "contact": "Contact"
     },
     "cta": "Join Us"
@@ -30,14 +31,15 @@
       "legal": "Legal"
     },
     "links": {
-      "about": "About",
+      "about": "About Us",
       "team": "Team",
       "contact": "Contact",
-      "projects": "Projects",
+      "friends": "Friend Links",
+      "blog": "Blog & News",
+      "projects": "Featured Projects",
       "services": "Services",
-      "privacy": "Privacy",
-      "terms": "Terms",
-      "friends": "Friend Links"
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service"
     },
     "copyright": "© {year} AperturePrism. All rights reserved."
   },
@@ -127,26 +129,84 @@
   "Projects": {
     "title": "Our Work",
     "description": "A selection of projects that showcase our passion for design and engineering.",
+    "backToProjects": "Back to Projects",
+    "stats": {
+      "timeline": "Timeline",
+      "teamSize": "Team Size",
+      "role": "My Role",
+      "year": "Year"
+    },
+    "gallery": "Project Gallery",
     "items": {
       "alpha": {
         "title": "APrism-Home",
         "category": "Web Development",
-        "description": "AperturePrism Team Official Website"
+        "description": "AperturePrism Team Official Website",
+        "content": "This is the official website of the AperturePrism team, showcasing our vision, team members, and core projects. Built with Next.js 15, it combines Tailwind CSS and Framer Motion to create a fluid visual experience.",
+        "technologies": "Next.js, React, Tailwind CSS, Framer Motion, TypeScript"
       },
       "neon": {
         "title": "Fur-Img-API",
         "category": "Backend Development",
-        "description": "Team Project: Random Image API Based on Node.js"
+        "description": "Team Project: Random Image API Based on Node.js",
+        "content": "Fur-Img-API is a high-performance random image distribution service designed for community developers. It offers simple RESTful APIs with support for various categories and size filtering.",
+        "technologies": "Node.js, Express, Redis, Docker"
       },
       "quantum": {
         "title": "Quantum Flow(Simulated data)",
         "category": "Mobile App",
-        "description": "Productivity application helping teams manage complex workflows effortlessly."
+        "description": "Productivity application helping teams manage complex workflows effortlessly.",
+        "content": "Quantum Flow redefines the project management experience on mobile. With intuitive gestures and intelligent automation, team collaboration becomes simpler than ever.",
+        "technologies": "React Native, GraphQL, Firebase"
       },
       "aether": {
         "title": "Aether(Simulated data)",
         "category": "UI/UX Design",
-        "description": "Design system and component library for an enterprise SaaS product."
+        "description": "Design system and component library for an enterprise SaaS product.",
+        "content": "Aether is a comprehensive design language aimed at unifying the visual style of enterprise products. It includes a strictly accessibility-tested component library and detailed design guidelines.",
+        "technologies": "Figma, Storybook, CSS Modules"
+      }
+    }
+  },
+  "Blog": {
+    "title": "Latest News",
+    "description": "Explore our thoughts, tech sharing, and team stories.",
+    "backToBlog": "Back to Blog",
+    "readTime": "{minutes} min read",
+    "featured": "Featured",
+    "categories": {
+      "all": "All",
+      "news": "News",
+      "tech": "Tech",
+      "design": "Design",
+      "culture": "Culture"
+    },
+    "writtenBy": "Written by",
+    "publishedOn": "Published on",
+    "share": "Share Article",
+    "relatedPosts": "Related Posts",
+    "prevPost": "Previous Post",
+    "nextPost": "Next Post",
+    "readingProgress": "Reading Progress",
+    "tableOfContents": "Table of Contents",
+    "author": {
+      "alex": "Full Stack Developer, loves open source and innovation.",
+      "sarah": "Senior UI/UX Designer, focused on UX details."
+    },
+    "posts": {
+      "welcome-to-aperture-prism": {
+        "title": "Welcome to AperturePrism",
+        "category": "news",
+        "readTime": "3",
+        "excerpt": "We are thrilled to announce the official launch of the AperturePrism website. This is a new beginning.",
+        "content": "AperturePrism is not just a team, but an experiment in innovation and aesthetics. We are dedicated to combining frontier technology with ultimate design to create amazing digital experiences.\n\nIn this blog, we will share our development journey, design thinking, and outlook for the future. Whether you are a developer, designer, or tech enthusiast, welcome to follow our updates."
+      },
+      "design-philosophy": {
+        "title": "Our Design Philosophy: Apple-Class",
+        "category": "design",
+        "readTime": "5",
+        "excerpt": "Why do we pursue ultimate simplicity and detail? Dive deep into the design concepts behind AperturePrism.",
+        "content": "At AperturePrism, we believe design is not just how it looks, but how it works. Influenced by Apple's design aesthetics, we strive for ultimate simplicity, intuitiveness, and detail.\n\nEvery pixel shift, every animation curve is meticulously crafted. Because we believe that only obsession with detail can achieve great products."
       }
     }
   },

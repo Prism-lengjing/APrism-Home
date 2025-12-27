@@ -8,7 +8,14 @@
 
 ## 📅 更新日志 (Changelog)
 
-### V1.2.0 (Current)
+### V1.3.0 (Current)
+- 📰 **博客系统**: 新增 `/blog` 博客列表页和详情页，支持分类筛选、阅读进度条和侧边栏。
+- 🚀 **项目详情页**: 全新设计的项目详情页，包含数据仪表盘、图库展示和关键特性列表。
+- 🎨 **UI 组件**: 新增 Shadcn UI 风格的 Button 组件，优化 404 页面视觉。
+- 🐛 **修复**: 修复了 Next.js 15+ 中动态路由参数解包的运行时错误。
+- 🔧 **工程化**: 升级 `package.json` 版本号，更新文档指南。
+
+### V1.2.0
 - 🚀 **团队页面重构**: 新增“旗下团队”和“共创团队”板块，采用富媒体卡片展示。
 - ✨ **共创计划**: 新增共创计划横幅，引导合作伙伴加入。
 - 🆕 **新增页面**: 创建了 `/services` 服务范围页面，完善了站点结构。
@@ -71,7 +78,10 @@
 | **关于 (About)** | `src/app/[locale]/about/page.tsx` | 修改关于我们页面的布局 |
 | **团队 (Team)** | `src/app/[locale]/team/page.tsx` | **修改成员名字**、添加旗下团队、共创计划板块 |
 | **项目 (Projects)** | `src/app/[locale]/projects/page.tsx` | **修改项目图片**、调整项目卡片布局 |
+| **项目详情 (Project Details)** | `src/app/[locale]/projects/[slug]/page.tsx` | 修改详情页结构、**统计数据逻辑**、图库布局 |
 | **友情链接 (Friends)** | `src/app/[locale]/friends/page.tsx` | **修改友链Logo**、调整友链展示方式 |
+| **博客列表 (Blog)** | `src/app/[locale]/blog/page.tsx` | 修改文章列表布局、筛选逻辑 |
+| **博客详情 (Blog Post)** | `src/app/[locale]/blog/[slug]/page.tsx` | 修改文章阅读页样式、**侧边栏**、进度条逻辑 |
 | **联系 (Contact)** | `src/app/[locale]/contact/page.tsx` | 修改联系表单、社交媒体链接 |
 | **招聘 (Careers)** | `src/app/[locale]/careers/page.tsx` | 修改职位列表结构 |
 

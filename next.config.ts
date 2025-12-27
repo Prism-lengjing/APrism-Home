@@ -14,6 +14,10 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'q1.qlogo.cn',
+      },
+      {
+        protocol: 'https',
         hostname: 'q.qlogo.cn',
       },
       {

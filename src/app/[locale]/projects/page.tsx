@@ -6,28 +6,34 @@ import { ScrollReveal } from "@/components/ScrollReveal";
 import { useTranslations } from "next-intl";
 import Image from "next/image";
 
+import { Link } from "@/i18n/navigation";
+
 export default function ProjectsPage() {
   const t = useTranslations('Projects');
   const projects = [
     {
+      id: "alpha",
       title: t('items.alpha.title'),
       category: t('items.alpha.category'),
       description: t('items.alpha.description'),
       image: "/images/projects/APrism-Home.png" // 示例图片路径
     },
     {
+      id: "neon",
       title: t('items.neon.title'),
       category: t('items.neon.category'),
       description: t('items.neon.description'),
       image: "/images/projects/Fur-Img-API_V2.png"
     },
     {
+      id: "quantum",
       title: t('items.quantum.title'),
       category: t('items.quantum.category'),
       description: t('items.quantum.description'),
       image: "/images/projects/quantum-flow.jpg"
     },
     {
+      id: "aether",
       title: t('items.aether.title'),
       category: t('items.aether.category'),
       description: t('items.aether.description'),
@@ -52,35 +58,37 @@ export default function ProjectsPage() {
         <div className="grid md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
             <ScrollReveal key={index} delay={index * 0.1}>
-              <Card className="group cursor-pointer h-full">
-                <div className="aspect-video bg-muted rounded-t-xl mb-6 flex items-center justify-center text-muted-foreground/50 text-4xl font-light overflow-hidden relative">
-                  {project.image ? (
-                     <Image 
-                       src={project.image} 
-                       alt={project.title}
-                       fill
-                       className="object-cover transition-transform duration-500 group-hover:scale-105"
-                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                     />
-                  ) : (
-                    <>
-                      <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                      Preview
-                    </>
-                  )}
-                </div>
-                <CardHeader>
-                  <div className="text-xs font-medium text-accent mb-2 uppercase tracking-wider">
-                    {project.category}
+              <Link href={`/projects/${project.id}`}>
+                <Card className="group cursor-pointer h-full hover:shadow-lg transition-all duration-300">
+                  <div className="aspect-video bg-muted rounded-t-xl mb-6 flex items-center justify-center text-muted-foreground/50 text-4xl font-light overflow-hidden relative">
+                    {project.image ? (
+                       <Image 
+                         src={project.image} 
+                         alt={project.title}
+                         fill
+                         className="object-cover transition-transform duration-500 group-hover:scale-105"
+                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                       />
+                    ) : (
+                      <>
+                        <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                        Preview
+                      </>
+                    )}
                   </div>
-                  <CardTitle className="group-hover:text-accent transition-colors">
-                    {project.title}
-                  </CardTitle>
-                </CardHeader>
-                <CardContent>
-                  {project.description}
-                </CardContent>
-              </Card>
+                  <CardHeader>
+                    <div className="text-xs font-medium text-accent mb-2 uppercase tracking-wider">
+                      {project.category}
+                    </div>
+                    <CardTitle className="group-hover:text-accent transition-colors">
+                      {project.title}
+                    </CardTitle>
+                  </CardHeader>
+                  <CardContent>
+                    {project.description}
+                  </CardContent>
+                </Card>
+              </Link>
             </ScrollReveal>
           ))}
         </div>

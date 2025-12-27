@@ -10,6 +10,7 @@
       "team": "团队",
       "projects": "项目",
       "friends": "友链",
+      "blog": "动态",
       "contact": "联系"
     },
     "cta": "加入我们"
@@ -33,11 +34,12 @@
       "about": "关于我们",
       "team": "团队介绍",
       "contact": "联系方式",
+      "friends": "友情链接",
+      "blog": "最新动态",
       "projects": "精选项目",
       "services": "服务范围",
       "privacy": "隐私政策",
-      "terms": "服务条款",
-      "friends": "友情链接"
+      "terms": "服务条款"
     },
     "copyright": "© {year} AperturePrism. 保留所有权利。"
   },
@@ -127,26 +129,42 @@
   "Projects": {
     "title": "我们的作品",
     "description": "精选项目展示了我们对设计和工程的热情。",
+    "backToProjects": "返回项目列表",
+    "stats": {
+      "timeline": "开发周期",
+      "teamSize": "团队规模",
+      "role": "我的角色",
+      "year": "年份"
+    },
+    "gallery": "项目图库",
     "items": {
       "alpha": {
         "title": "APrism-Home",
         "category": "Web 开发",
-        "description": "AperturePrism团队官网"
+        "description": "AperturePrism团队官网",
+        "content": "这是光圈棱镜团队的官方网站，展示了我们的愿景、团队成员以及核心项目。网站采用 Next.js 15 构建，结合了 Tailwind CSS 和 Framer Motion，打造出流畅的视觉体验。",
+        "technologies": "Next.js, React, Tailwind CSS, Framer Motion, TypeScript"
       },
       "neon": {
         "title": "Fur-Img-API",
         "category": "后端开发",
-        "description": "团队项目 基于Node.js的随机图片API"
+        "description": "团队项目 基于Node.js的随机图片API",
+        "content": "Fur-Img-API 是一个高性能的随机图片分发服务，专为社区开发者设计。它提供了简单易用的 RESTful API，支持多种分类和尺寸过滤。",
+        "technologies": "Node.js, Express, Redis, Docker"
       },
       "quantum": {
         "title": "Quantum Flow（模拟数据）",
         "category": "移动应用",
-        "description": "帮助团队轻松管理复杂工作流的生产力应用。"
+        "description": "帮助团队轻松管理复杂工作流的生产力应用。",
+        "content": "Quantum Flow 重新定义了移动端的项目管理体验。通过直观的手势操作和智能的自动化流程，让团队协作变得前所未有的简单。",
+        "technologies": "React Native, GraphQL, Firebase"
       },
       "aether": {
         "title": "Aether（模拟数据）",
         "category": "UI/UX 设计",
-        "description": "面向企业级 SaaS 产品的设计系统和组件库。"
+        "description": "面向企业级 SaaS 产品的设计系统和组件库。",
+        "content": "Aether 是一套完整的设计语言，旨在统一企业级产品的视觉风格。它包含了一套经过严格无障碍测试的组件库和详细的设计规范。",
+        "technologies": "Figma, Storybook, CSS Modules"
       }
     }
   },
@@ -174,6 +192,48 @@
       "FurCraft": {
         "name": "FurCraft",
         "description": "专注于furry相关项目的开发与维护。"
+      }
+    }
+  },
+  "Blog": {
+    "title": "最新动态",
+    "description": "探索我们的想法、技术分享和团队故事。",
+    "backToBlog": "返回动态列表",
+    "readTime": "{minutes} 分钟阅读",
+    "featured": "精选文章",
+    "categories": {
+      "all": "全部",
+      "news": "新闻",
+      "tech": "技术",
+      "design": "设计",
+      "culture": "文化"
+    },
+    "writtenBy": "作者",
+    "publishedOn": "发布于",
+    "share": "分享文章",
+    "relatedPosts": "相关文章",
+    "prevPost": "上一篇",
+    "nextPost": "下一篇",
+    "readingProgress": "阅读进度",
+    "tableOfContents": "目录",
+    "author": {
+      "alex": "全栈开发者，热爱开源与创新。",
+      "sarah": "资深 UI/UX 设计师，专注于用户体验细节。"
+    },
+    "posts": {
+      "welcome-to-aperture-prism": {
+        "title": "欢迎来到光圈棱镜",
+        "category": "news",
+        "readTime": "3",
+        "excerpt": "我们很高兴地宣布光圈棱镜官网正式上线。这是一个新的起点，我们将在这里分享更多关于我们的故事。",
+        "content": "光圈棱镜不仅仅是一个团队，更是一个关于创新与美学的实验。我们致力于将前沿技术与极致设计相结合，创造出令人惊叹的数字体验。\n\n在这个博客中，我们将分享我们的开发历程、设计思考以及对未来的展望。无论你是开发者、设计师，还是对科技感兴趣的朋友，都欢迎关注我们的动态。"
+      },
+      "design-philosophy": {
+        "title": "我们的设计哲学：Apple-Class",
+        "category": "design",
+        "readTime": "5",
+        "excerpt": "为什么我们要追求极致的简约与细节？深入了解光圈棱镜背后的设计理念。",
+        "content": "在光圈棱镜，我们相信设计不仅仅是外观，更是它是如何工作的。我们深受 Apple 设计美学的影响，追求极致的简约、直观和细节。\n\n每一个像素的偏移，每一个动画的曲线，都经过我们反复的推敲。因为我们相信，只有对细节的偏执，才能成就伟大的产品。"
       }
     }
   },
