@@ -30,6 +30,12 @@ export default function TeamPage() {
       image: "https://q1.qlogo.cn/g?b=qq&nk=1280993766&s=640"
     },
     {
+      name: "赤焰鸿燏advan10",
+      role: t('members.advan10.role'),
+      bio: t('members.advan10.bio'),
+      image: "https://q1.qlogo.cn/g?b=qq&nk=3655144879&s=640"
+    },
+    {
       name: "不知道先生stralightnwn",
       role: t('members.stralightnwn.role'),
       bio: t('members.stralightnwn.bio'),
