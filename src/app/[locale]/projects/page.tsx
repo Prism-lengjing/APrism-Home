@@ -26,18 +26,32 @@ export default function ProjectsPage() {
       image: "/images/projects/Fur-Img-API_V2.png"
     },
     {
+      id: "nai2openai",
+      title: t('items.nai2openai.title'),
+      category: t('items.nai2openai.category'),
+      description: t('items.nai2openai.description'),
+      image: "/images/projects/nai2openai.png"
+    },
+    {
+      id: "adminWebUI",
+      title: t('items.adminWebUI.title'),
+      category: t('items.adminWebUI.category'),
+      description: t('items.adminWebUI.description'),
+      image: "/images/projects/Aprism-Frp-adminWebUI.png"
+    },
+    {
+      id: "gmi",
+      title: t('items.gmi.title'),
+      category: t('items.gmi.category'),
+      description: t('items.gmi.description'),
+      image: "/images/projects/GMI.png"
+    },
+    {
       id: "quantum",
       title: t('items.quantum.title'),
       category: t('items.quantum.category'),
       description: t('items.quantum.description'),
       image: "/images/projects/quantum-flow.jpg"
-    },
-    {
-      id: "aether",
-      title: t('items.aether.title'),
-      category: t('items.aether.category'),
-      description: t('items.aether.description'),
-      image: "/images/projects/aether.jpg"
     }
   ];
 

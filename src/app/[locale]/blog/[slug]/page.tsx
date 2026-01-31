@@ -26,6 +26,8 @@ import { use, useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { motion, useScroll, useSpring } from "framer-motion";
 
+import ReactMarkdown from 'react-markdown';
+
 export default function BlogPostPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = use(params);
   const t = useTranslations('Blog');
@@ -37,28 +39,36 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
   });
 
   // Validate slug
-  const validPosts = ['welcome-to-aperture-prism', 'design-philosophy'];
+  const validPosts = ['welcome-to-aperture-prism', 'design-philosophy', 'dual-track-development'];
   if (!validPosts.includes(slug)) {
     notFound();
   }
 
+  // Author images map
+  const authorImages: Record<string, string> = {
+    binbim: "https://q1.qlogo.cn/g?b=qq&nk=1721822150&s=640",
+    alex: "https://q1.qlogo.cn/g?b=qq&nk=3579267163&s=640", // Fallback to Sarah's avatar for now as Alex's is not provided
+    sarah: "https://q1.qlogo.cn/g?b=qq&nk=3579267163&s=640"
+  };
+
   // Mock metadata (Sync with list page)
   const meta = {
-    date: slug === 'welcome-to-aperture-prism' ? '2024-01-01' : '2024-02-15',
-    author: slug === 'welcome-to-aperture-prism' ? 'Alex' : 'Sarah',
-    authorKey: slug === 'welcome-to-aperture-prism' ? 'alex' : 'sarah',
-    category: slug === 'welcome-to-aperture-prism' ? 'news' : 'design',
+    date: slug === 'welcome-to-aperture-prism' ? '2024-01-01' : slug === 'dual-track-development' ? '2026-02-01' : '2024-02-15',
+    author: slug === 'welcome-to-aperture-prism' ? 'Alex' : slug === 'dual-track-development' ? '彬彬Binbim' : 'Sarah',
+    authorKey: slug === 'welcome-to-aperture-prism' ? 'alex' : slug === 'dual-track-development' ? 'binbim' : 'sarah',
+    authorImage: slug === 'welcome-to-aperture-prism' ? authorImages.alex : slug === 'dual-track-development' ? authorImages.binbim : authorImages.sarah,
+    category: slug === 'welcome-to-aperture-prism' ? 'news' : slug === 'dual-track-development' ? 'tech' : 'design',
     readTime: slug === 'welcome-to-aperture-prism' ? '3' : '5',
-    image: slug === 'welcome-to-aperture-prism' ? "/images/projects/APrism-Home.png" : "/images/projects/aether.jpg"
+    image: slug === 'welcome-to-aperture-prism' ? "/images/projects/APrism-Home.png" : slug === 'dual-track-development' ? "/images/projects/Aprism-Frp-adminWebUI.png" : "/images/projects/aether.jpg"
   };
 
   // Mock related posts (Simple logic: show the other post)
-  const relatedPostSlug = slug === 'welcome-to-aperture-prism' ? 'design-philosophy' : 'welcome-to-aperture-prism';
+  const relatedPostSlug = slug === 'dual-track-development' ? 'welcome-to-aperture-prism' : 'dual-track-development';
   const relatedPostMeta = {
-    image: relatedPostSlug === 'welcome-to-aperture-prism' ? "/images/projects/APrism-Home.png" : "/images/projects/aether.jpg",
-    date: relatedPostSlug === 'welcome-to-aperture-prism' ? '2024-01-01' : '2024-02-15',
+    image: relatedPostSlug === 'welcome-to-aperture-prism' ? "/images/projects/APrism-Home.png" : "/images/projects/Aprism-Frp-adminWebUI.png",
+    date: relatedPostSlug === 'welcome-to-aperture-prism' ? '2024-01-01' : '2026-02-01',
     readTime: relatedPostSlug === 'welcome-to-aperture-prism' ? '3' : '5',
-    category: relatedPostSlug === 'welcome-to-aperture-prism' ? 'news' : 'design'
+    category: relatedPostSlug === 'welcome-to-aperture-prism' ? 'news' : 'tech'
   };
 
   return (
@@ -104,11 +114,21 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
              </h1>
 
              <div className="flex items-center justify-center gap-3">
-                <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center overflow-hidden border-2 border-background shadow-sm">
-                   <User className="w-5 h-5 text-muted-foreground" />
+                <div className="w-10 h-10 rounded-full bg-muted flex items-center justify-center overflow-hidden border-2 border-background shadow-sm relative">
+                   {meta.authorImage ? (
+                     <Image 
+                       src={meta.authorImage} 
+                       alt={meta.author}
+                       fill
+                       className="object-cover"
+                     />
+                   ) : (
+                     <User className="w-5 h-5 text-muted-foreground" />
+                   )}
                 </div>
                 <div className="text-left">
                    <div className="text-sm font-semibold">{meta.author}</div>
+                   <div className="text-xs font-medium text-accent">{t(`authorRole.${meta.authorKey}`)}</div>
                    <div className="text-xs text-muted-foreground">{t(`author.${meta.authorKey}`)}</div>
                 </div>
              </div>
@@ -149,11 +169,9 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
                 <p className="lead text-2xl text-foreground font-medium mb-10 leading-relaxed border-b border-border pb-10">
                   {t(`posts.${slug}.excerpt`)}
                 </p>
-                {t(`posts.${slug}.content`).split('\n\n').map((paragraph, i) => (
-                  <p key={i}>
-                    {paragraph}
-                  </p>
-                ))}
+                <ReactMarkdown>
+                  {t(`posts.${slug}.content`)}
+                </ReactMarkdown>
               </div>
 
               {/* Tags & Share */}
@@ -214,11 +232,21 @@ export default function BlogPostPage({ params }: { params: Promise<{ slug: strin
                   {t('writtenBy')}
                 </h3>
                 <div className="flex items-start gap-4 mb-4">
-                  <div className="w-12 h-12 rounded-full bg-muted flex-shrink-0 flex items-center justify-center overflow-hidden border border-border">
-                    <User className="w-6 h-6 text-muted-foreground" />
+                  <div className="w-12 h-12 rounded-full bg-muted flex-shrink-0 flex items-center justify-center overflow-hidden border border-border relative">
+                    {meta.authorImage ? (
+                      <Image 
+                        src={meta.authorImage} 
+                        alt={meta.author}
+                        fill
+                        className="object-cover"
+                      />
+                    ) : (
+                      <User className="w-6 h-6 text-muted-foreground" />
+                    )}
                   </div>
                   <div>
                     <div className="font-bold">{meta.author}</div>
+                    <div className="text-xs font-medium text-accent mt-0.5">{t(`authorRole.${meta.authorKey}`)}</div>
                     <div className="text-xs text-muted-foreground mt-1 leading-snug">
                       {t(`author.${meta.authorKey}`)}
                     </div>

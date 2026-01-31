@@ -18,10 +18,28 @@ export default function ProjectDetailsPage({ params }: { params: Promise<{ slug:
 
   // Simple validation to check if project exists in our list
   // In a real app, you'd check against a database or a config list
-  const validProjects = ['alpha', 'neon', 'quantum', 'aether'];
+  const validProjects = ['alpha', 'neon', 'quantum', 'nai2openai', 'adminWebUI', 'gmi'];
   if (!validProjects.includes(slug)) {
     notFound();
   }
+
+  const projectLinks: Record<string, string> = {
+    nai2openai: "https://github.com/Prism-lengjing/nai2openai",
+    adminWebUI: "https://github.com/Prism-lengjing/Aprism-Frp-adminWebUI",
+    gmi: "https://github.com/Prism-lengjing/GMI",
+  };
+
+  const getImageSrc = (slug: string) => {
+    switch (slug) {
+      case 'alpha': return "/images/projects/APrism-Home.png";
+      case 'neon': return "/images/projects/Fur-Img-API_V2.png";
+      case 'nai2openai': return "/images/projects/nai2openai.png";
+      case 'adminWebUI': return "/images/projects/Aprism-Frp-adminWebUI.png";
+      case 'gmi': return "/images/projects/GMI.png";
+      case 'quantum': return "/images/projects/quantum-flow.jpg";
+      default: return "/images/projects/APrism-Home.png"; // Fallback
+    }
+  };
 
   // Mock extended metadata
   const meta = {
@@ -79,12 +97,7 @@ export default function ProjectDetailsPage({ params }: { params: Promise<{ slug:
         <ScrollReveal delay={0.1}>
           <div className="aspect-video w-full relative rounded-3xl overflow-hidden bg-muted border border-white/10 shadow-2xl">
              <Image 
-               src={
-                 slug === 'alpha' ? "/images/projects/APrism-Home.png" :
-                 slug === 'neon' ? "/images/projects/Fur-Img-API_V2.png" :
-                 slug === 'quantum' ? "/images/projects/quantum-flow.jpg" :
-                 "/images/projects/aether.jpg"
-               }
+               src={getImageSrc(slug)}
                alt={t(`items.${slug}.title`)}
                fill
                className="object-cover"
@@ -186,7 +199,7 @@ export default function ProjectDetailsPage({ params }: { params: Promise<{ slug:
                   <h4 className="text-sm font-semibold text-muted-foreground uppercase tracking-wider mb-4">Project Links</h4>
                   <div className="space-y-3">
                     <Button variant="outline" className="w-full justify-start h-12" asChild>
-                      <Link href="#">GitHub Repository</Link>
+                      <Link href={projectLinks[slug] || "#"} target="_blank" rel="noopener noreferrer">GitHub Repository</Link>
                     </Button>
                     <Button variant="outline" className="w-full justify-start h-12" asChild>
                       <Link href="#">Design System</Link>

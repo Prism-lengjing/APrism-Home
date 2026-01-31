@@ -65,6 +65,10 @@
     "title": "Meet the Team",
     "description": "The minds behind AperturePrism. We are a diverse group of thinkers and doers.",
     "members": {
+      "binbim": {
+        "role": "Founder & Lead Designer",
+        "bio": "Full Stack Developer, a geek who loves tinkering with new technologies."
+      },
       "alex": {
         "role": "Founder & Lead Designer",
         "bio": "Focused on front-end and back-end development and software and hardware operation and maintenance technologies"
@@ -163,12 +167,26 @@
         "content": "Quantum Flow redefines the project management experience on mobile. With intuitive gestures and intelligent automation, team collaboration becomes simpler than ever.",
         "technologies": "React Native, GraphQL, Firebase"
       },
-      "aether": {
-        "title": "Aether(Simulated data)",
-        "category": "UI/UX Design",
-        "description": "Design system and component library for an enterprise SaaS product.",
-        "content": "Aether is a comprehensive design language aimed at unifying the visual style of enterprise products. It includes a strictly accessibility-tested component library and detailed design guidelines.",
-        "technologies": "Figma, Storybook, CSS Modules"
+      "nai2openai": {
+        "title": "NovelAI to OpenAI Proxy",
+        "category": "Backend Tool",
+        "description": "NovelAI Image Generation API to OpenAI Format Proxy Service",
+        "content": "A high-performance, powerful middleware service that converts NovelAI's image generation API into standard OpenAI DALL-E 3 compatible format. Supports multi-tenant Key system, Web management panel, and automatic image archiving.",
+        "technologies": "Python, FastAPI, HTTPX, AsyncIO"
+      },
+      "adminWebUI": {
+        "title": "Aprism FRP Admin",
+        "category": "Web Development",
+        "description": "Management and access platform for private intranet penetration",
+        "content": "AperturePrism is a management and access platform for private intranet penetration, providing a control plane (Node API + React Console), and plans to rewrite the data plane in Rust. It offers node/client/proxy management, full-link logging, and event archiving.",
+        "technologies": "Node.js, React, Vite, SQLite, Express"
+      },
+      "gmi": {
+        "title": "GMI Mental Illness Guide",
+        "category": "Wiki & Education",
+        "description": "Chinese mental health knowledge base based on MkDocs",
+        "content": "GMI (Mental Illness Guide) is a Chinese mental health knowledge base built on MkDocs and mkdocs-material. The goal is to provide the public with systematic, reliable, and easy-to-understand information on mental illness and medical guidance, reducing stigma and promoting understanding and support.",
+        "technologies": "MkDocs, Python, Markdown"
       }
     }
   },
@@ -195,9 +213,22 @@
     "tableOfContents": "Table of Contents",
     "author": {
       "alex": "Full Stack Developer, loves open source and innovation.",
-      "sarah": "Senior UI/UX Designer, focused on UX details."
+      "sarah": "Senior UI/UX Designer, focused on UX details.",
+      "binbim": "Full Stack Developer, a geek who loves tinkering with new technologies."
+    },
+    "authorRole": {
+      "binbim": "Founder & Core Developer",
+      "alex": "Founder & Core Developer",
+      "sarah": "Founder & Core Developer"
     },
     "posts": {
+      "dual-track-development": {
+        "title": "Dual-Track Development: nai2openai & Aprism FRP Admin Progress",
+        "category": "tech",
+        "readTime": "5",
+        "excerpt": "The AperturePrism team is fully engaged in the dual-track development of nai2openai and Aprism FRP Admin. This article shares our exploration and progress in image generation proxy services and intranet penetration management.",
+        "content": "At AperturePrism, we are always exploring the boundaries of technology. Recently, our team has been in a dual-track development mode on two major fronts: **nai2openai** and **Aprism FRP Admin**.\n\n### nai2openai: Breaking Ecosystem Barriers\n\n**nai2openai** was born to solve the incompatibility between NovelAI's image generation API and the mainstream OpenAI ecosystem. By providing a high-performance middleware service, we seamlessly integrate NovelAI's powerful drawing capabilities into existing OpenAI client ecosystems.\n\nCurrent development focus includes:\n- **Protocol Compatibility**: Ensuring perfect support for OpenAI's `/v1/images/generations` interface standard.\n- **High-Performance Async Processing**: Building a high-concurrency architecture using FastAPI and HTTPX to ensure ultra-low latency under high loads.\n- **Multi-Tenant Management**: Perfecting the Key distribution system, supporting the distribution of multiple OpenAI-formatted sk-keys from a single NovelAI account for team or community sharing.\n\n### Aprism FRP Admin: A New Choice for Private Intranet Penetration\n\nOn the other hand, **Aprism FRP Admin** carries our vision for private intranet penetration management. We are well aware of the pain points in visualization and permission control of existing frp management solutions, so we decided to build a modern management platform from scratch.\n\nCurrent progress includes:\n- **Control Plane**: The Web console based on Node.js and React is taking shape, supporting node management, configuration file generation, and visual status monitoring.\n- **Data Plane Planning**: We plan to introduce Rust to rewrite the data forwarding layer in the future to provide ultimate performance and memory safety.\n\n### Outlook\n\nDual-track development brings significant challenges but also greatly stimulates the team's potential. We look forward to seeing both projects mature and meet everyone in the near future, bringing more convenience and possibilities to the community."
+      },
       "welcome-to-aperture-prism": {
         "title": "Welcome to AperturePrism",
         "category": "news",

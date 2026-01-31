@@ -13,8 +13,8 @@ export default function TeamPage() {
   const teamMembers = [
     {
       name: "彬彬Binbim",
-      role: t('members.alex.role'),
-      bio: t('members.alex.bio'),
+      role: t('members.binbim.role'),
+      bio: t('members.binbim.bio'),
       image: "https://q1.qlogo.cn/g?b=qq&nk=1721822150&s=640" // 替换为你的图片文件名
     },
     {

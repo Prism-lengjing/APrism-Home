@@ -15,13 +15,22 @@ import Image from "next/image";
 // Mock data extended with categories and readTime
 const posts = [
   {
+    slug: "dual-track-development",
+    date: "2026-02-01",
+    author: "Binbim",
+    category: "tech",
+    readTime: "5",
+    image: "/images/projects/Aprism-Frp-adminWebUI.png",
+    featured: true
+  },
+  {
     slug: "welcome-to-aperture-prism",
     date: "2024-01-01",
     author: "Alex",
     category: "news",
     readTime: "3",
     image: "/images/projects/APrism-Home.png",
-    featured: true
+    featured: false
   },
   {
     slug: "design-philosophy",
