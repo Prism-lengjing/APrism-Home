@@ -4,7 +4,7 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { ScrollReveal } from "@/components/ScrollReveal";
 import { useTranslations } from "next-intl";
-import { Monitor, Smartphone, Palette, Lightbulb } from "lucide-react";
+import { Monitor, Smartphone, Palette, Lightbulb, Bot } from "lucide-react";
 
 export default function ServicesPage() {
   const t = useTranslations('Services');
@@ -33,6 +33,12 @@ export default function ServicesPage() {
       icon: Lightbulb,
       title: t('items.consulting.title'),
       description: t('items.consulting.description')
+    },
+    {
+      id: "astrbot",
+      icon: Bot,
+      title: t('items.astrbot.title'),
+      description: t('items.astrbot.description')
     }
   ];
 

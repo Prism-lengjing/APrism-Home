@@ -23,7 +23,7 @@
     "cta_secondary": "Contact Us"
   },
   "Footer": {
-    "slogan": "Innovation Refracted Through Design.",
+    "slogan": "Empowering every glow with technology, refracting every hope with a prism, creating every future with ideas.",
     "columns": {
       "company": "Company",
       "work": "Work",
@@ -197,6 +197,10 @@
       "consulting": {
         "title": "Tech Consulting",
         "description": "Professional architecture design and digital transformation consulting."
+      },
+      "astrbot": {
+        "title": "AstrBot Plugin Development",
+        "description": "Custom development of powerful AstrBot plugins to extend your bot's capabilities."
       }
     }
   },
@@ -283,8 +287,7 @@
     "info": {
       "title": "Contact Information",
       "email": "Email",
-      "phone": "Phone",
-      "office": "Office"
+      "workMode": "Work Mode"
     },
     "social": {
       "title": "Social Media"

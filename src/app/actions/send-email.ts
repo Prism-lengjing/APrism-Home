@@ -1,6 +1,7 @@
 "use server";
 
 import nodemailer from "nodemailer";
+import { getEmailTemplate } from "@/lib/email-templates";
 
 interface ContactFormData {
   firstName: string;
@@ -74,15 +75,26 @@ export async function sendEmailAction(prevState: ActionState, formData: FormData
         消息内容:
         ${data.message}
       `,
-      html: `
-        <h3>官网收到新的联系表单提交</h3>
-        <p><strong>姓名:</strong> ${data.firstName} ${data.lastName}</p>
-        <p><strong>邮箱:</strong> ${data.email}</p>
-        <p><strong>消息内容:</strong></p>
-        <p style="white-space: pre-wrap;">${data.message.replace(/\n/g, '<br>')}</p>
-        <hr />
-        <p style="font-size: 12px; color: #666;">此邮件由 AperturePrism 官网自动发送。</p>
-      `,
+      html: getEmailTemplate(
+        "收到新的联系表单提交",
+        `
+          <h1>新消息提醒</h1>
+          <p>您收到了一封来自官网联系表单的新邮件。</p>
+          <table class="info-table">
+            <tr>
+              <td class="info-label">姓名</td>
+              <td>${data.firstName} ${data.lastName}</td>
+            </tr>
+            <tr>
+              <td class="info-label">邮箱</td>
+              <td><a href="mailto:${data.email}">${data.email}</a></td>
+            </tr>
+          </table>
+          <p><strong>消息内容：</strong></p>
+          <p style="white-space: pre-wrap; background: #fafafa; padding: 16px; border-radius: 8px; font-size: 14px; color: #444;">${data.message}</p>
+        `,
+        `来自 ${data.firstName} ${data.lastName} 的新消息`
+      ),
     };
 
     await transporter.sendMail(mailOptions);

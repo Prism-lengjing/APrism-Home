@@ -2,7 +2,7 @@ import { Link } from "@/i18n/navigation";
 import { Section } from "@/components/ui/section";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Mail, Globe } from "lucide-react";
 import { FaGithub, FaDiscord, FaSlack, FaTelegramPlane, FaQq } from "react-icons/fa";
 import { useTranslations } from "next-intl";
 import { ContactForm } from "@/components/ContactForm";
@@ -52,22 +52,12 @@ export default function ContactPage() {
                 </div>
                 <div className="flex items-start gap-4">
                   <div className="p-3 rounded-full bg-muted text-foreground">
-                    <Phone className="w-5 h-5" />
+                    <Globe className="w-5 h-5" />
                   </div>
                   <div>
-                    <p className="font-medium">{t('info.phone')}</p>
-                    <p className="text-muted-foreground">+1 (555) 000-0000</p>
-                  </div>
-                </div>
-                <div className="flex items-start gap-4">
-                  <div className="p-3 rounded-full bg-muted text-foreground">
-                    <MapPin className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <p className="font-medium">{t('info.office')}</p>
+                    <p className="font-medium">{t('info.workMode')}</p>
                     <p className="text-muted-foreground">
-                      123 Innovation Way<br />
-                      Tech District, CA 94103
+                      Remote First / Global
                     </p>
                   </div>
                 </div>

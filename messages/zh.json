@@ -23,7 +23,7 @@
     "cta_secondary": "联系我们"
   },
   "Footer": {
-    "slogan": "设计折射创新。",
+    "slogan": "用科技成就每一次发光,用棱镜折射每一次希望,用想法创造每一个未来.",
     "columns": {
       "company": "公司",
       "work": "作品",
@@ -224,6 +224,10 @@
       "consulting": {
         "title": "技术咨询",
         "description": "提供专业的架构设计和数字化转型咨询服务。"
+      },
+      "astrbot": {
+        "title": "AstrBot 插件开发",
+        "description": "为您定制开发功能强大的 AstrBot 插件，扩展机器人的能力边界。"
       }
     }
   },
@@ -284,8 +288,7 @@
     "info": {
       "title": "联系信息",
       "email": "邮箱",
-      "phone": "电话",
-      "office": "办公室"
+      "workMode": "工作方式"
     },
     "social": {
       "title": "社交媒体"
