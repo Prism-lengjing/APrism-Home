@@ -4,6 +4,9 @@ import "../globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
 import { NextIntlClientProvider } from 'next-intl';
 import { getMessages } from 'next-intl/server';
+import { Inter } from 'next/font/google';
+
+const inter = Inter({ subsets: ['latin'], variable: '--font-sans' });
 
 export const metadata: Metadata = {
   title: {
@@ -48,7 +51,7 @@ export default async function RootLayout({
 
   return (
     <html lang={locale} suppressHydrationWarning>
-      <body className="antialiased bg-background text-foreground min-h-screen">
+      <body className={`${inter.variable} antialiased bg-background text-foreground min-h-screen font-sans`}>
         <NextIntlClientProvider messages={messages}>
           <ThemeProvider
             attribute="class"

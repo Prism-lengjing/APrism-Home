@@ -9,7 +9,7 @@ export function Card({ className, children, ...props }: CardProps) {
   return (
     <div
       className={cn(
-        "glass-card hover:translate-y-[-2px] hover:shadow-lg transition-all duration-300",
+        "glass-card transition-all duration-300",
         className
       )}
       {...props}

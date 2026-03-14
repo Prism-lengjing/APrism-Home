@@ -10,7 +10,6 @@
       "team": "团队",
       "projects": "项目",
       "friends": "友链",
-      "blog": "动态",
       "contact": "联系"
     },
     "cta": "加入我们"
@@ -35,7 +34,6 @@
       "team": "团队介绍",
       "contact": "联系方式",
       "friends": "友情链接",
-      "blog": "最新动态",
       "projects": "精选项目",
       "services": "服务范围",
       "privacy": "隐私政策",
@@ -77,10 +75,6 @@
         "role": "创始人 & 核心开发者",
         "bio": "前端工程师 & 摸鱼小能手"
       },
-      "jordan": {
-        "role": "创始人 & 核心开发者",
-        "bio": "我是秦始皇 v我50（"
-      },
       "stralightnwn": {
         "role": "创始人 & 核心开发者",
         "bio": "信竞大手子("
@@ -114,12 +108,6 @@
     "coCreationTeams": {
       "title": "共创团队",
       "items": {
-        "community": {
-          "name": "Amethyst紫水晶",
-          "description": "致力于加速AI落地 & 提供高可用、高可扩展性的云存储服务。",
-          "category": "团队",
-          "website": "https://www.amethyst.ltd/"
-        },
         "partners": {
           "name": "FurCraft",
           "description": "专注于furry相关项目的开发与维护。",
@@ -214,61 +202,6 @@
       "FurCraft": {
         "name": "FurCraft",
         "description": "专注于furry相关项目的开发与维护。"
-      }
-    }
-  },
-  "Blog": {
-    "title": "最新动态",
-    "description": "探索我们的想法、技术分享和团队故事。",
-    "backToBlog": "返回动态列表",
-    "readTime": "{minutes} 分钟阅读",
-    "featured": "精选文章",
-    "categories": {
-      "all": "全部",
-      "news": "新闻",
-      "tech": "技术",
-      "design": "设计",
-      "culture": "文化"
-    },
-    "writtenBy": "作者",
-    "publishedOn": "发布于",
-    "share": "分享文章",
-    "relatedPosts": "相关文章",
-    "prevPost": "上一篇",
-    "nextPost": "下一篇",
-    "readingProgress": "阅读进度",
-    "tableOfContents": "目录",
-    "author": {
-      "binbim": "全栈开发者，热爱折腾新技术的极客。",
-      "alex": "全栈开发者，热爱开源与创新。",
-      "sarah": "资深 UI/UX 设计师，专注于用户体验细节。"
-    },
-    "authorRole": {
-      "binbim": "创始人 & 核心开发者",
-      "alex": "创始人 & 核心开发者",
-      "sarah": "创始人 & 核心开发者"
-    },
-    "posts": {
-      "dual-track-development": {
-        "title": "双线并行：nai2openai 与 Aprism FRP Admin 开发进展",
-        "category": "tech",
-        "readTime": "5",
-        "excerpt": "光圈棱镜团队正在全力推进 nai2openai 与 Aprism FRP Admin 的双线开发。本文将分享我们在图像生成代理服务与内网穿透管理平台这两个不同领域的探索与进展。",
-        "content": "在光圈棱镜（AperturePrism），我们始终致力于探索技术的边界。近期，我们的团队正处于两条重要战线的双线开发模式中：**nai2openai** 和 **Aprism FRP Admin**。\n\n### nai2openai：打破生态壁垒\n\n**nai2openai** 是我们为了解决 NovelAI 图像生成 API 与主流 OpenAI 生态不兼容问题而诞生的项目。通过提供一个高性能的中间件服务，我们将 NovelAI 强大的绘图能力无缝接入到现有的 OpenAI 客户端生态中。\n\n目前的开发重点在于：\n- **协议兼容性**：确保完美支持 OpenAI 的 `/v1/images/generations` 接口标准。\n- **高性能异步处理**：利用 FastAPI 和 HTTPX 构建高并发架构，确保在高负载下依然保持极低的延迟。\n- **多租户管理**：完善 Key 分发系统，支持一个 NovelAI 账号分发多个 OpenAI 格式的 sk-key，方便团队或社区共享使用。\n\n### Aprism FRP Admin：私有化内网穿透的新选择\n\n另一方面，**Aprism FRP Admin** 承载了我们对私有化内网穿透管理的愿景。我们深知现有的 frp 管理方案在可视化与权限控制上的痛点，因此决定从零构建一套现代化的管理平台。\n\n目前的进展包括：\n- **控制面（Control Plane）**：基于 Node.js 和 React 的 Web 控制台已初具雏形，支持节点管理、配置文件生成以及可视化的状态监控。\n- **数据面（Data Plane）规划**：我们计划在未来引入 Rust 重写数据转发层，以提供极致的性能与内存安全。\n\n### 展望\n\n双线并行虽然带来了不小的挑战，但也极大地激发了团队的潜能。我们期待在不久的将来，这两个项目都能以成熟的姿态与大家见面，为社区带来更多便利与可能。"
-      },
-      "welcome-to-aperture-prism": {
-        "title": "欢迎来到光圈棱镜",
-        "category": "news",
-        "readTime": "3",
-        "excerpt": "我们很高兴地宣布光圈棱镜官网正式上线。这是一个新的起点，我们将在这里分享更多关于我们的故事。",
-        "content": "光圈棱镜不仅仅是一个团队，更是一个关于创新与美学的实验。我们致力于将前沿技术与极致设计相结合，创造出令人惊叹的数字体验。\n\n在这个博客中，我们将分享我们的开发历程、设计思考以及对未来的展望。无论你是开发者、设计师，还是对科技感兴趣的朋友，都欢迎关注我们的动态。"
-      },
-      "design-philosophy": {
-        "title": "我们的设计哲学：Apple-Class",
-        "category": "design",
-        "readTime": "5",
-        "excerpt": "为什么我们要追求极致的简约与细节？深入了解光圈棱镜背后的设计理念。",
-        "content": "在光圈棱镜，我们相信设计不仅仅是外观，更是它是如何工作的。我们深受 Apple 设计美学的影响，追求极致的简约、直观和细节。\n\n每一个像素的偏移，每一个动画的曲线，都经过我们反复的推敲。因为我们相信，只有对细节的偏执，才能成就伟大的产品。"
       }
     }
   },

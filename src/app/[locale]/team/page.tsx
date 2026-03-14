@@ -24,12 +24,6 @@ export default function TeamPage() {
       image: "https://q1.qlogo.cn/g?b=qq&nk=3579267163&s=640" // 替换为你的图片文件名
     },
     {
-      name: "顾雨晨Amazing",
-      role: t('members.jordan.role'),
-      bio: t('members.jordan.bio'),
-      image: "https://q1.qlogo.cn/g?b=qq&nk=1280993766&s=640"
-    },
-    {
       name: "赤焰鸿燏advan10",
       role: t('members.advan10.role'),
       bio: t('members.advan10.bio'),
@@ -67,13 +61,6 @@ export default function TeamPage() {
   ];
 
   const coCreationTeams = [
-    {
-      name: t('coCreationTeams.items.community.name'),
-      description: t('coCreationTeams.items.community.description'),
-      image: "https://docs.amethyst.ltd/icon.png", 
-      category: t('coCreationTeams.items.community.category'),
-      website: t('coCreationTeams.items.community.website')
-    },
     {
       name: t('coCreationTeams.items.partners.name'),
       description: t('coCreationTeams.items.partners.description'),
