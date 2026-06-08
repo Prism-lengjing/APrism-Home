@@ -1,0 +1,202 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// -- Admin User --
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  emailVerified DateTime?
+  name          String?
+  passwordHash  String    @map("password_hash")
+  role          String    @default("admin")
+  createdAt     DateTime  @default(now()) @map("created_at")
+  updatedAt     DateTime  @updatedAt @map("updated_at")
+
+  @@map("users")
+}
+
+// -- Projects --
+
+model Project {
+  id           String   @id @default(cuid())
+  slug         String   @unique
+  title        String
+  titleZh      String   @map("title_zh")
+  description  String
+  descriptionZh String  @map("description_zh")
+  content      String   @default("")
+  contentZh    String   @default("") @map("content_zh")
+  category     String
+  categoryZh   String   @map("category_zh")
+  image        String
+  technologies String   @default("")
+  teamSize     String   @default("")
+  timeline     String   @default("")
+  role         String   @default("")
+  year         String   @default("")
+  githubUrl    String?  @map("github_url")
+  liveUrl      String?  @map("live_url")
+  status       String   @default("active")
+  sortOrder    Int      @default(0) @map("sort_order")
+  createdAt    DateTime @default(now()) @map("created_at")
+  updatedAt    DateTime @updatedAt @map("updated_at")
+
+  @@index([category])
+  @@index([status])
+  @@map("projects")
+}
+
+// -- Blog --
+
+model Post {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       String
+  titleZh     String   @map("title_zh")
+  excerpt     String
+  excerptZh   String   @map("excerpt_zh")
+  content     String
+  contentZh   String   @default("") @map("content_zh")
+  category    String
+  categoryZh  String   @map("category_zh")
+  image       String
+  authorId    String   @map("author_id")
+  author      TeamMember? @relation(fields: [authorId], references: [id])
+  readTime    Int      @default(5) @map("read_time")
+  featured    Boolean  @default(false)
+  published   Boolean  @default(false)
+  publishedAt DateTime? @map("published_at")
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+  tags        PostTag[]
+  comments    Comment[]
+
+  @@index([category])
+  @@index([published, publishedAt])
+  @@map("posts")
+}
+
+model Tag {
+  id    String   @id @default(cuid())
+  name  String   @unique
+  nameZh String  @map("name_zh")
+  slug  String   @unique
+  posts PostTag[]
+
+  @@map("tags")
+}
+
+model PostTag {
+  postId String @map("post_id")
+  tagId  String @map("tag_id")
+  post   Post   @relation(fields: [postId], references: [id], onDelete: Cascade)
+  tag    Tag    @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@id([postId, tagId])
+  @@map("post_tags")
+}
+
+// -- Team --
+
+model TeamMember {
+  id        String   @id @default(cuid())
+  name      String
+  nameZh    String   @map("name_zh")
+  role      String
+  roleZh    String   @map("role_zh")
+  bio       String
+  bioZh     String   @map("bio_zh")
+  image     String
+  email     String?
+  github    String?
+  website   String?
+  type      String   @default("member")
+  sortOrder Int      @default(0) @map("sort_order")
+  createdAt DateTime @default(now()) @map("created_at")
+  posts     Post[]
+
+  @@index([type])
+  @@map("team_members")
+}
+
+// -- Comments & Feedback --
+
+model Comment {
+  id          String   @id @default(cuid())
+  content     String
+  authorName  String   @map("author_name")
+  authorEmail String   @map("author_email")
+  postId      String?  @map("post_id")
+  post        Post?    @relation(fields: [postId], references: [id], onDelete: Cascade)
+  parentId    String?  @map("parent_id")
+  parent      Comment? @relation("CommentReplies", fields: [parentId], references: [id])
+  replies     Comment[] @relation("CommentReplies")
+  status      String   @default("pending")
+  createdAt   DateTime @default(now()) @map("created_at")
+
+  @@index([postId, status])
+  @@index([status])
+  @@map("comments")
+}
+
+model Feedback {
+  id        String   @id @default(cuid())
+  type      String
+  name      String
+  email     String?
+  content   String
+  status    String   @default("new")
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@index([status])
+  @@map("feedback")
+}
+
+// -- Contact Messages --
+
+model ContactMessage {
+  id        String   @id @default(cuid())
+  firstName String   @map("first_name")
+  lastName  String   @map("last_name")
+  email     String
+  message   String
+  read      Boolean  @default(false)
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@map("contact_messages")
+}
+
+// -- Friend Links --
+
+model FriendLink {
+  id            String   @id @default(cuid())
+  name          String
+  nameZh        String   @map("name_zh")
+  description   String
+  descriptionZh String   @map("description_zh")
+  url           String
+  logo          String
+  sortOrder     Int      @default(0) @map("sort_order")
+  active        Boolean  @default(true)
+  createdAt     DateTime @default(now()) @map("created_at")
+
+  @@map("friend_links")
+}
+
+// -- Site Settings --
+
+model SiteSetting {
+  id    String @id @default(cuid())
+  key   String @unique
+  value String
+
+  @@map("site_settings")
+}

@@ -1,12 +1,11 @@
 "use client";
 
-import { Link } from "@/i18n/navigation";
+import { Link, usePathname, useRouter } from "@/i18n/navigation";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { useState, useEffect } from "react";
 import { ModeToggle } from "./ModeToggle";
 import { useTranslations, useLocale } from "next-intl";
-import { usePathname, useRouter } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -33,8 +32,8 @@ export function Navbar() {
 
   const switchLocale = () => {
     const newLocale = locale === 'zh' ? 'en' : 'zh';
-    const newPath = pathname.replace(`/${locale}`, `/${newLocale}`);
-    router.push(newPath);
+    // Use full page navigation to ensure server re-renders with new locale
+    window.location.href = `/${newLocale}${pathname.replace(/^\/(zh|en)/, '')}`;
   };
 
   return (
@@ -47,14 +46,14 @@ export function Navbar() {
       <div className="container-apple flex items-center justify-between mx-auto">
         <Link 
           href="/" 
-          className="flex items-center gap-2 text-apple-title font-bold tracking-tight hover:opacity-80 transition-opacity z-50 text-foreground"
+          className="flex items-center gap-3 text-apple-title font-bold tracking-tight hover:opacity-80 transition-opacity z-50 text-foreground"
         >
           <Image
             src="/images/team/logo.png"
             alt="Logo"
-            width={32}
-            height={32}
-            className="object-contain"
+            width={28}
+            height={28}
+            className="object-contain rounded-full"
           />
           {t('brand')}
         </Link>
@@ -65,7 +64,7 @@ export function Navbar() {
             <Link
               key={item}
               href={`/${item}`}
-              className="text-sm font-medium transition-colors text-muted-foreground hover:text-foreground"
+              className="text-sm font-medium transition-colors text-muted-foreground hover:text-primary"
             >
               {t(`links.${item}`)}
             </Link>

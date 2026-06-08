@@ -1,114 +1,45 @@
-import { Section } from "@/components/ui/section";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
-import { ScrollReveal } from "@/components/ScrollReveal";
-import { useTranslations } from "next-intl";
-import Image from "next/image";
+import { PageTemplate } from "@/components/ui/PageTemplate";
+import { ScrollReveal } from "@/components/animations/ScrollReveal";
+import { getTranslations } from "next-intl/server";
+import { ProjectCard } from "@/components/features/projects/ProjectCard";
 
-import { Link } from "@/i18n/navigation";
+const fallbackProjects = [
+  { id: "alpha", title: "APrism-Home", category: "Web 开发", description: "AperturePrism团队官网", image: "/images/projects/APrism-Home.png" },
+  { id: "neon", title: "Fur-Img-API", category: "后端开发", description: "团队项目 基于Node.js的随机图片API", image: "/images/projects/Fur-Img-API_V2.png" },
+  { id: "nai2openai", title: "NovelAI to OpenAI Proxy", category: "后端工具", description: "NovelAI 图像生成 API 转 OpenAI 格式代理服务", image: "/images/projects/nai2openai.png" },
+  { id: "adminWebUI", title: "Aprism FRP Admin", category: "Web 开发", description: "面向私有化内网穿透的管理与接入平台", image: "/images/projects/Aprism-Frp-adminWebUI.png" },
+  { id: "gmi", title: "GMI 精神疾病指南", category: "公益科普", description: "基于 MkDocs 的中文精神健康知识库", image: "/images/projects/GMI.png" },
+  { id: "quantum", title: "Quantum Flow（模拟数据）", category: "移动应用", description: "帮助团队轻松管理复杂工作流的生产力应用。", image: "/images/projects/APrism-Home.png" },
+];
 
-export default function ProjectsPage() {
-  const t = useTranslations('Projects');
-  const projects = [
-    {
-      id: "alpha",
-      title: t('items.alpha.title'),
-      category: t('items.alpha.category'),
-      description: t('items.alpha.description'),
-      image: "/images/projects/APrism-Home.png" // 示例图片路径
-    },
-    {
-      id: "neon",
-      title: t('items.neon.title'),
-      category: t('items.neon.category'),
-      description: t('items.neon.description'),
-      image: "/images/projects/Fur-Img-API_V2.png"
-    },
-    {
-      id: "nai2openai",
-      title: t('items.nai2openai.title'),
-      category: t('items.nai2openai.category'),
-      description: t('items.nai2openai.description'),
-      image: "/images/projects/nai2openai.png"
-    },
-    {
-      id: "adminWebUI",
-      title: t('items.adminWebUI.title'),
-      category: t('items.adminWebUI.category'),
-      description: t('items.adminWebUI.description'),
-      image: "/images/projects/Aprism-Frp-adminWebUI.png"
-    },
-    {
-      id: "gmi",
-      title: t('items.gmi.title'),
-      category: t('items.gmi.category'),
-      description: t('items.gmi.description'),
-      image: "/images/projects/GMI.png"
-    },
-    {
-      id: "quantum",
-      title: t('items.quantum.title'),
-      category: t('items.quantum.category'),
-      description: t('items.quantum.description'),
-      image: "/images/projects/quantum-flow.jpg"
-    }
-  ];
+async function getProjectData(locale: string) {
+  try {
+    const { getProjects } = await import("@/lib/data/projects");
+    const projects = await getProjects(locale);
+    return projects.length > 0 ? projects : fallbackProjects;
+  } catch {
+    return fallbackProjects;
+  }
+}
+
+export default async function ProjectsPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations('Projects');
+  const projects = await getProjectData(locale);
 
   return (
-    <main className="min-h-screen flex flex-col">
-      <Navbar />
-      
-      <Section className="pt-32 pb-12">
-        <ScrollReveal>
-          <h1 className="text-apple-display mb-4">{t('title')}</h1>
-          <p className="text-apple-body text-xl text-muted-foreground max-w-2xl">
-            {t('description')}
-          </p>
-        </ScrollReveal>
-      </Section>
+    <PageTemplate title={t('title')}>
+      <p className="text-apple-body text-xl text-muted-foreground max-w-2xl mb-16">
+        {t('description')}
+      </p>
 
-      <Section className="pt-0 pb-24">
-        <div className="grid md:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
-            <ScrollReveal key={index} delay={index * 0.1}>
-              <Link href={`/projects/${project.id}`}>
-                <Card className="group cursor-pointer h-full hover:shadow-lg transition-all duration-300">
-                  <div className="aspect-video bg-muted rounded-t-xl mb-6 flex items-center justify-center text-muted-foreground/50 text-4xl font-light overflow-hidden relative">
-                    {project.image ? (
-                       <Image 
-                         src={project.image} 
-                         alt={project.title}
-                         fill
-                         className="object-cover transition-transform duration-500 group-hover:scale-105"
-                         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                       />
-                    ) : (
-                      <>
-                        <div className="absolute inset-0 bg-accent/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-                        Preview
-                      </>
-                    )}
-                  </div>
-                  <CardHeader>
-                    <div className="text-xs font-medium text-accent mb-2 uppercase tracking-wider">
-                      {project.category}
-                    </div>
-                    <CardTitle className="group-hover:text-accent transition-colors">
-                      {project.title}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    {project.description}
-                  </CardContent>
-                </Card>
-              </Link>
-            </ScrollReveal>
-          ))}
-        </div>
-      </Section>
-
-      <Footer />
-    </main>
+      <div className="grid md:grid-cols-2 gap-8">
+        {projects.map((project, index) => (
+          <ScrollReveal key={project.id} delay={index * 0.1}>
+            <ProjectCard {...project} />
+          </ScrollReveal>
+        ))}
+      </div>
+    </PageTemplate>
   );
 }

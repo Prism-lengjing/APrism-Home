@@ -1,9 +1,20 @@
 import createMiddleware from 'next-intl/middleware';
-import {routing} from './i18n/navigation';
- 
-export default createMiddleware(routing);
- 
+import { routing } from './i18n/navigation';
+import { NextRequest } from 'next/server';
+
+const intlMiddleware = createMiddleware(routing);
+
+export default function middleware(request: NextRequest) {
+  const { pathname } = request.nextUrl;
+
+  // Skip i18n middleware for admin and API routes
+  if (pathname.startsWith('/admin') || pathname.startsWith('/api')) {
+    return;
+  }
+
+  return intlMiddleware(request);
+}
+
 export const config = {
-  // Match only internationalized pathnames
   matcher: ['/', '/(zh|en)/:path*']
 };

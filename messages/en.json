@@ -122,6 +122,52 @@
       "cta": "Apply to Join"
     }
   },
+  "Blog": {
+    "title": "Blog",
+    "description": "Thoughts and shares from the AperturePrism team.",
+    "backToBlog": "Back to Blog",
+    "readTime": "{minutes} min read",
+    "share": "Share",
+    "tableOfContents": "Table of Contents",
+    "writtenBy": "Written By",
+    "relatedPosts": "Related Posts",
+    "prevPost": "Previous",
+    "nextPost": "Next",
+    "categories": {
+      "all": "All",
+      "news": "News",
+      "tech": "Tech",
+      "design": "Design",
+      "culture": "Culture"
+    },
+    "authorRole": {
+      "binbim": "Founder & Core Developer",
+      "alex": "Founder & Core Developer",
+      "sarah": "Founder & Core Developer"
+    },
+    "author": {
+      "binbim": "Full Stack Developer, a geek who loves tinkering with new technologies.",
+      "alex": "Focused on front-end and back-end development and software and hardware operation and maintenance technologies",
+      "sarah": "Frontend Engineer & Expert at Slacking Off"
+    },
+    "posts": {
+      "welcome-to-aperture-prism": {
+        "title": "Welcome to AperturePrism",
+        "excerpt": "We are excited to announce the official launch of AperturePrism.",
+        "content": "## About Us\n\nAperturePrism is a team of designers, engineers, and visionaries..."
+      },
+      "design-philosophy": {
+        "title": "Our Design Philosophy",
+        "excerpt": "Exploring the design philosophy behind AperturePrism.",
+        "content": "## Design Driven\n\nAt AperturePrism, we believe good design is more than just looks..."
+      },
+      "dual-track-development": {
+        "title": "Dual-Track Development",
+        "excerpt": "How we simultaneously advance product development and technical exploration.",
+        "content": "## Parallel Tracks\n\nIn a rapidly changing technical environment..."
+      }
+    }
+  },
   "Projects": {
     "title": "Our Work",
     "description": "A selection of projects that showcase our passion for design and engineering.",

@@ -1,93 +1,54 @@
-import { Section } from "@/components/ui/section";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
-import { ScrollReveal } from "@/components/ScrollReveal";
-import { useTranslations } from "next-intl";
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { PageTemplate } from "@/components/ui/PageTemplate";
+import { ScrollReveal } from "@/components/animations/ScrollReveal";
+import { getTranslations } from "next-intl/server";
+import { Card, CardContent } from "@/components/ui/card";
 import Image from "next/image";
 
-export default function FriendsPage() {
-  const t = useTranslations('Friends');
+const fallbackFriends = [
+  { id: "nextjs", name: "Next.js", description: "Web 的 React 框架", url: "https://nextjs.org", logo: "https://assets.vercel.com/image/upload/v1662130559/nextjs/Icon_light_background.png" },
+  { id: "vercel", name: "Vercel", description: "开发、预览、发布", url: "https://vercel.com", logo: "https://assets.vercel.com/image/upload/front/favicon/vercel/favicon.ico" },
+  { id: "tailwindcss", name: "Tailwind CSS", description: "无需离开 HTML 即可快速构建现代网站", url: "https://tailwindcss.com", logo: "https://www.tailwindcss.cn/favicons/apple-touch-icon.png?v=3" },
+  { id: "FurCraft", name: "FurCraft", description: "专注于furry相关项目的开发与维护。", url: "https://furcraft.top/", logo: "https://furcraft.top/logo.png" },
+];
 
-  const friends = [
-    {
-      id: "nextjs",
-      url: "https://nextjs.org",
-      logo: "https://assets.vercel.com/image/upload/v1662130559/nextjs/Icon_light_background.png"
-    },
-    {
-      id: "vercel",
-      url: "https://vercel.com",
-      logo: "https://assets.vercel.com/image/upload/front/favicon/vercel/favicon.ico" 
-    },
-    {
-      id: "tailwindcss",
-      url: "https://tailwindcss.com",
-      logo: "https://www.tailwindcss.cn/favicons/apple-touch-icon.png?v=3"
-    },
-    {
-      id: "Amethyst",
-      url: "https://www.amethyst.ltd/",
-      logo: "https://docs.amethyst.ltd/icon.png"
-    },
-    {
-      id: "FurCraft",
-      url: "https://furcraft.top/",
-      logo: "https://furcraft.top/logo.png"
-    }
-  ];
+async function getFriendsData(locale: string) {
+  try {
+    const { getFriendLinks } = await import("@/lib/data/friends");
+    const friends = await getFriendLinks(locale);
+    return friends.length > 0 ? friends : fallbackFriends;
+  } catch {
+    return fallbackFriends;
+  }
+}
+
+export default async function FriendsPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params;
+  const t = await getTranslations('Friends');
+  const friends = await getFriendsData(locale);
 
   return (
-    <main className="min-h-screen flex flex-col">
-      <Navbar />
-      
-      <Section className="pt-32 pb-12">
-        <ScrollReveal>
-          <h1 className="text-apple-display mb-4">{t('title')}</h1>
-          <p className="text-apple-body text-xl text-muted-foreground max-w-2xl">
-            {t('description')}
-          </p>
-        </ScrollReveal>
-      </Section>
+    <PageTemplate title={t('title')}>
+      <p className="text-apple-body text-xl text-muted-foreground max-w-2xl mb-16">
+        {t('description')}
+      </p>
 
-      <Section className="pt-0 pb-24">
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {friends.map((friend, index) => (
-            <ScrollReveal key={index} delay={index * 0.1}>
-              <a 
-                href={friend.url} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="block h-full group"
-              >
-                <Card className="h-full transition-all duration-300 group-hover:-translate-y-1 group-hover:shadow-lg">
-                  <CardHeader className="flex flex-row items-center gap-4 pb-2">
-                    <div className="relative w-12 h-12 rounded-xl overflow-hidden bg-muted p-2 flex items-center justify-center border border-border/50">
-                      <Image 
-                        src={friend.logo} 
-                        alt={t(`items.${friend.id}.name`)} 
-                        width={32} 
-                        height={32} 
-                        className="object-contain"
-                      />
-                    </div>
-                    <CardTitle className="text-lg group-hover:text-accent transition-colors">
-                      {t(`items.${friend.id}.name`)}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <p className="text-sm text-muted-foreground">
-                      {t(`items.${friend.id}.description`)}
-                    </p>
-                  </CardContent>
-                </Card>
-              </a>
-            </ScrollReveal>
-          ))}
-        </div>
-      </Section>
-
-      <Footer />
-    </main>
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {friends.map((friend, index) => (
+          <ScrollReveal key={friend.id} delay={index * 0.1}>
+            <a href={friend.url} target="_blank" rel="noopener noreferrer" className="block h-full interactive">
+              <Card className="glass-card h-full flex items-center gap-6 p-6">
+                <div className="relative w-16 h-16 rounded-2xl overflow-hidden bg-secondary p-3 flex items-center justify-center border border-border">
+                  <Image src={friend.logo} alt={friend.name} width={48} height={48} className="object-contain" />
+                </div>
+                <div>
+                  <h3 className="text-lg font-bold text-foreground mb-1">{friend.name}</h3>
+                  <p className="text-sm text-muted-foreground">{friend.description}</p>
+                </div>
+              </Card>
+            </a>
+          </ScrollReveal>
+        ))}
+      </div>
+    </PageTemplate>
   );
 }

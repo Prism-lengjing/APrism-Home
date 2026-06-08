@@ -122,6 +122,52 @@
       "cta": "申请加入"
     }
   },
+  "Blog": {
+    "title": "博客",
+    "description": "来自光圈棱镜团队的思考与分享。",
+    "backToBlog": "返回博客",
+    "readTime": "{minutes} 分钟阅读",
+    "share": "分享",
+    "tableOfContents": "目录",
+    "writtenBy": "作者",
+    "relatedPosts": "相关文章",
+    "prevPost": "上一篇",
+    "nextPost": "下一篇",
+    "categories": {
+      "all": "全部",
+      "news": "新闻",
+      "tech": "技术",
+      "design": "设计",
+      "culture": "文化"
+    },
+    "authorRole": {
+      "binbim": "创始人 & 核心开发者",
+      "alex": "创始人 & 核心开发者",
+      "sarah": "创始人 & 核心开发者"
+    },
+    "author": {
+      "binbim": "全栈开发者，热爱折腾新技术的极客。",
+      "alex": "专注于前后端开发与软硬件运维技术",
+      "sarah": "前端工程师 & 摸鱼小能手"
+    },
+    "posts": {
+      "welcome-to-aperture-prism": {
+        "title": "欢迎来到光圈棱镜",
+        "excerpt": "我们很高兴地宣布 AperturePrism 正式成立。",
+        "content": "## 关于我们\n\n光圈棱镜是一个由设计师、工程师和梦想家组成的团队..."
+      },
+      "design-philosophy": {
+        "title": "我们的设计理念",
+        "excerpt": "探索 AperturePrism 背后的设计哲学。",
+        "content": "## 设计驱动\n\n在光圈棱镜，我们相信好的设计不仅仅是外观..."
+      },
+      "dual-track-development": {
+        "title": "双轨开发模式",
+        "excerpt": "我们如何同时推进产品开发和技术探索。",
+        "content": "## 双轨并行\n\n在快速变化的技术环境中..."
+      }
+    }
+  },
   "Projects": {
     "title": "我们的作品",
     "description": "精选项目展示了我们对设计和工程的热情。",
@@ -193,11 +239,6 @@
       "tailwindcss": {
         "name": "Tailwind CSS",
         "description": "无需离开 HTML 即可快速构建现代网站"
-      },
-        "Amethyst": {
-        "name": "Amethyst紫水晶",
-        "description": "性能云存储与下一代 AI API 服务."
-      
       },
       "FurCraft": {
         "name": "FurCraft",
