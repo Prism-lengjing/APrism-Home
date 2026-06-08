@@ -1,17 +1,14 @@
 import { PrismaClient } from '@prisma/client';
-import { PrismaLibSql } from '@prisma/adapter-libsql';
+import { PrismaLibSQL } from '@prisma/adapter-libsql';
+import { createClient } from '@libsql/client';
 
 function createPrismaClient() {
   const url = process.env.DATABASE_URL;
 
   // Use Turso/libsql for production, SQLite for local development
   if (url && url.startsWith('libsql://')) {
-    // Extract auth token from URL query params
-    const urlObj = new URL(url);
-    const authToken = urlObj.searchParams.get('authToken') || '';
-    const cleanUrl = urlObj.origin + urlObj.pathname;
-
-    const adapter = new PrismaLibSql({ url: cleanUrl, authToken });
+    const client = createClient({ url });
+    const adapter = new PrismaLibSQL(client);
     return new PrismaClient({ adapter });
   }
 
