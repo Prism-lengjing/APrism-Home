@@ -5,11 +5,11 @@ export async function GET(request: Request, { params }: { params: Promise<{ id: 
   const { id } = await params;
   try {
     const { prisma } = await import("@/lib/db");
-    const post = await prisma.post.findUnique({ where: { id } });
-    if (!post) return NextResponse.json({ error: "Not found" }, { status: 404 });
-    return NextResponse.json(post);
+    const friend = await prisma.friendLink.findUnique({ where: { id } });
+    if (!friend) return NextResponse.json({ error: "Not found" }, { status: 404 });
+    return NextResponse.json(friend);
   } catch (error) {
-    console.error("Failed to fetch post:", error);
+    console.error("Failed to fetch friend link:", error);
     return NextResponse.json({ error: "Not found" }, { status: 404 });
   }
 }
@@ -22,29 +22,23 @@ export async function PUT(request: Request, { params }: { params: Promise<{ id: 
   const body = await request.json();
   try {
     const { prisma } = await import("@/lib/db");
-    const post = await prisma.post.update({
+    const friend = await prisma.friendLink.update({
       where: { id },
       data: {
-        slug: body.slug,
-        title: body.title,
-        titleZh: body.titleZh,
-        excerpt: body.excerpt,
-        excerptZh: body.excerptZh,
-        content: body.content,
-        contentZh: body.contentZh,
-        category: body.category,
-        categoryZh: body.categoryZh,
-        image: body.image,
-        readTime: parseInt(body.readTime) || 5,
-        featured: body.featured || false,
-        published: body.published || false,
-        publishedAt: body.published ? new Date() : null,
+        name: body.name,
+        nameZh: body.nameZh,
+        description: body.description,
+        descriptionZh: body.descriptionZh,
+        url: body.url,
+        logo: body.logo,
+        sortOrder: parseInt(body.sortOrder) || 0,
+        active: body.active !== false,
       },
     });
-    return NextResponse.json(post);
+    return NextResponse.json(friend);
   } catch (error) {
-    console.error("Failed to update post:", error);
-    return NextResponse.json({ error: "Failed to update post" }, { status: 500 });
+    console.error("Failed to update friend link:", error);
+    return NextResponse.json({ error: "Failed to update friend link" }, { status: 500 });
   }
 }
 
@@ -55,10 +49,10 @@ export async function DELETE(request: Request, { params }: { params: Promise<{ i
   const { id } = await params;
   try {
     const { prisma } = await import("@/lib/db");
-    await prisma.post.delete({ where: { id } });
+    await prisma.friendLink.delete({ where: { id } });
     return NextResponse.json({ success: true });
   } catch (error) {
-    console.error("Failed to delete post:", error);
-    return NextResponse.json({ error: "Failed to delete post" }, { status: 500 });
+    console.error("Failed to delete friend link:", error);
+    return NextResponse.json({ error: "Failed to delete friend link" }, { status: 500 });
   }
 }

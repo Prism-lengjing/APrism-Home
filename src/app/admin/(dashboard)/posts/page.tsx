@@ -1,5 +1,6 @@
 import Link from "next/link";
-import { Plus, Edit, Trash2 } from "lucide-react";
+import { Plus, Edit } from "lucide-react";
+import { DeleteButton } from "@/components/features/admin/DeleteButton";
 
 async function getPosts() {
   try {
@@ -65,6 +66,7 @@ export default async function PostsPage() {
                   <Link href={`/admin/posts/${post.id}/edit`} className="p-2 hover:bg-muted rounded-lg inline-block">
                     <Edit className="w-4 h-4 text-muted-foreground" />
                   </Link>
+                  <DeleteButton id={post.id} type="posts" />
                 </td>
               </tr>
             ))}

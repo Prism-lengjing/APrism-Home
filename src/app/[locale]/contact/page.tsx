@@ -40,7 +40,7 @@ export default async function ContactPage() {
                 </div>
                 <div>
                   <p className="font-medium text-foreground">{t('info.email')}</p>
-                  <p className="text-muted-foreground">hello@aprism.top</p>
+                  <p className="text-muted-foreground">{t('info.emailValue')}</p>
                 </div>
               </div>
               <div className="flex items-start gap-4">
@@ -49,7 +49,7 @@ export default async function ContactPage() {
                 </div>
                 <div>
                   <p className="font-medium text-foreground">{t('info.workMode')}</p>
-                  <p className="text-muted-foreground">Remote First / Global</p>
+                  <p className="text-muted-foreground">{t('info.workModeValue')}</p>
                 </div>
               </div>
             </div>
@@ -72,7 +72,7 @@ export default async function ContactPage() {
               ))}
             </div>
           </div>
-          
+
           <div className="glass-card p-8 border-primary/20">
             <h4 className="font-semibold mb-2 text-foreground">{t('join.title')}</h4>
             <p className="text-sm text-muted-foreground mb-6 leading-relaxed">

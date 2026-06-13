@@ -60,7 +60,7 @@ export function Navbar() {
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex gap-8">
-          {['about', 'team', 'projects', 'friends', 'contact'].map((item) => (
+          {['about', 'team', 'projects', 'blog', 'friends', 'contact'].map((item) => (
             <Link
               key={item}
               href={`/${item}`}
@@ -108,7 +108,7 @@ export function Navbar() {
             className="fixed inset-0 bg-background/95 backdrop-blur-xl z-40 pt-24 px-6 md:hidden"
           >
             <nav className="flex flex-col gap-6 text-center">
-              {['about', 'team', 'projects', 'friends', 'contact'].map((item) => (
+              {['about', 'team', 'projects', 'blog', 'friends', 'contact'].map((item) => (
                 <Link
                   key={item}
                   onClick={() => setIsMenuOpen(false)}

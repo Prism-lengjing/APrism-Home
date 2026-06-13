@@ -4,16 +4,20 @@ import { auth } from "@/lib/auth";
 export async function GET() {
   try {
     const { prisma } = await import("@/lib/db");
-    const posts = await prisma.post.findMany({ orderBy: { createdAt: "desc" } });
+    const posts = await prisma.post.findMany({
+      orderBy: { createdAt: "desc" },
+      where: { published: true },
+    });
     return NextResponse.json(posts);
-  } catch {
+  } catch (error) {
+    console.error("Failed to fetch posts:", error);
     return NextResponse.json([]);
   }
 }
 
 export async function POST(request: Request) {
   const session = await auth();
-  if (!session) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  if (!session?.user) return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
 
   const body = await request.json();
   try {
@@ -30,7 +34,7 @@ export async function POST(request: Request) {
         category: body.category || "general",
         categoryZh: body.categoryZh || body.category || "通用",
         image: body.image || "",
-        authorId: "admin",
+        authorId: session.user.id,
         readTime: parseInt(body.readTime) || 5,
         featured: body.featured || false,
         published: body.published || false,
@@ -39,6 +43,7 @@ export async function POST(request: Request) {
     });
     return NextResponse.json(post);
   } catch (error) {
+    console.error("Failed to create post:", error);
     return NextResponse.json({ error: "Failed to create post" }, { status: 500 });
   }
 }

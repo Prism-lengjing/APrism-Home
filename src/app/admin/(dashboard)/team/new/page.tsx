@@ -8,27 +8,44 @@ import Link from "next/link";
 export default function NewTeamPage() {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
   const [form, setForm] = useState({
     name: "", nameZh: "", role: "", roleZh: "", bio: "", bioZh: "",
-    image: "", email: "", github: "", website: "", type: "member",
+    image: "", email: "", github: "", website: "", type: "member", sortOrder: "0",
   });
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
-    await fetch("/api/team", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(form),
-    });
-    setLoading(false);
-    router.push("/admin/team");
+    setError("");
+    try {
+      const res = await fetch("/api/team", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      if (res.ok) {
+        router.push("/admin/team");
+      } else {
+        const data = await res.json();
+        setError(data.error || "添加失败，请重试");
+      }
+    } catch {
+      setError("网络错误，请检查连接后重试");
+    } finally {
+      setLoading(false);
+    }
   };
 
   return (
     <div>
       <Link href="/admin/team" className="inline-flex items-center text-sm text-muted-foreground hover:text-foreground mb-6"><ArrowLeft className="w-4 h-4 mr-2" />返回团队列表</Link>
       <h1 className="text-3xl font-bold text-foreground mb-8">添加成员</h1>
+
+      {error && (
+        <div className="bg-destructive/10 text-destructive p-3 rounded-lg mb-6 text-sm">{error}</div>
+      )}
+
       <form onSubmit={handleSubmit} className="space-y-6 max-w-4xl">
         <div className="grid grid-cols-2 gap-4">
           <div><label className="block text-sm font-medium text-foreground mb-2">姓名 (EN)</label><input value={form.name} onChange={e => setForm({...form, name: e.target.value})} className="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground" required /></div>
@@ -43,8 +60,9 @@ export default function NewTeamPage() {
           <div><label className="block text-sm font-medium text-foreground mb-2">简介 (ZH)</label><textarea value={form.bioZh} onChange={e => setForm({...form, bioZh: e.target.value})} className="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground h-20" /></div>
         </div>
         <div><label className="block text-sm font-medium text-foreground mb-2">头像 URL</label><input value={form.image} onChange={e => setForm({...form, image: e.target.value})} className="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground" /></div>
-        <div className="grid grid-cols-3 gap-4">
+        <div className="grid grid-cols-4 gap-4">
           <div><label className="block text-sm font-medium text-foreground mb-2">类型</label><select value={form.type} onChange={e => setForm({...form, type: e.target.value})} className="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground"><option value="member">成员</option><option value="subteam">子团队</option><option value="co-creation">共创</option></select></div>
+          <div><label className="block text-sm font-medium text-foreground mb-2">排序</label><input type="number" value={form.sortOrder} onChange={e => setForm({...form, sortOrder: e.target.value})} className="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground" /></div>
           <div><label className="block text-sm font-medium text-foreground mb-2">邮箱</label><input value={form.email} onChange={e => setForm({...form, email: e.target.value})} className="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground" /></div>
           <div><label className="block text-sm font-medium text-foreground mb-2">GitHub</label><input value={form.github} onChange={e => setForm({...form, github: e.target.value})} className="w-full px-4 py-2 rounded-lg border border-border bg-background text-foreground" /></div>
         </div>

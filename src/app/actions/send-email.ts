@@ -18,6 +18,15 @@ interface ActionState {
   };
 }
 
+function escapeHtml(str: string): string {
+  return str
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#039;");
+}
+
 export async function sendEmailAction(prevState: ActionState, formData: FormData): Promise<ActionState> {
   const data: ContactFormData = {
     firstName: formData.get("firstName") as string,
@@ -35,6 +44,17 @@ export async function sendEmailAction(prevState: ActionState, formData: FormData
   }
 
   try {
+    // Save to database
+    const { prisma } = await import("@/lib/db");
+    await prisma.contactMessage.create({
+      data: {
+        firstName: data.firstName,
+        lastName: data.lastName,
+        email: data.email,
+        message: data.message,
+      },
+    });
+
     // Check if SMTP environment variables are set
     if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASS) {
         console.warn("SMTP credentials not found. Logging email content instead.");
@@ -43,7 +63,7 @@ export async function sendEmailAction(prevState: ActionState, formData: FormData
         console.log(`From: ${data.firstName} ${data.lastName} <${data.email}>`);
         console.log(`Message: ${data.message}`);
         console.log("----------------------------------------");
-        
+
         // Simulate network delay
         await new Promise(resolve => setTimeout(resolve, 1000));
 
@@ -56,22 +76,27 @@ export async function sendEmailAction(prevState: ActionState, formData: FormData
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
       port: Number(process.env.SMTP_PORT) || 587,
-      secure: process.env.SMTP_SECURE === 'true', // true for 465, false for other ports
+      secure: process.env.SMTP_SECURE === 'true',
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
       },
     });
 
+    const safeFirstName = escapeHtml(data.firstName);
+    const safeLastName = escapeHtml(data.lastName);
+    const safeEmail = escapeHtml(data.email);
+    const safeMessage = escapeHtml(data.message);
+
     const mailOptions = {
-      from: `"${data.firstName} ${data.lastName}" <${process.env.SMTP_USER}>`, // Sender address (must be authenticated user usually)
+      from: `"${data.firstName} ${data.lastName}" <${process.env.SMTP_USER}>`,
       replyTo: data.email,
-      to: process.env.CONTACT_EMAIL || process.env.SMTP_USER, // Receiver
+      to: process.env.CONTACT_EMAIL || process.env.SMTP_USER,
       subject: `来自官网的新消息: ${data.firstName} ${data.lastName}`,
       text: `
         姓名: ${data.firstName} ${data.lastName}
         邮箱: ${data.email}
-        
+
         消息内容:
         ${data.message}
       `,
@@ -83,15 +108,15 @@ export async function sendEmailAction(prevState: ActionState, formData: FormData
           <table class="info-table">
             <tr>
               <td class="info-label">姓名</td>
-              <td>${data.firstName} ${data.lastName}</td>
+              <td>${safeFirstName} ${safeLastName}</td>
             </tr>
             <tr>
               <td class="info-label">邮箱</td>
-              <td><a href="mailto:${data.email}">${data.email}</a></td>
+              <td><a href="mailto:${safeEmail}">${safeEmail}</a></td>
             </tr>
           </table>
           <p><strong>消息内容：</strong></p>
-          <p style="white-space: pre-wrap; background: #fafafa; padding: 16px; border-radius: 8px; font-size: 14px; color: #444;">${data.message}</p>
+          <p style="white-space: pre-wrap; background: #fafafa; padding: 16px; border-radius: 8px; font-size: 14px; color: #444;">${safeMessage}</p>
         `,
         `来自 ${data.firstName} ${data.lastName} 的新消息`
       ),

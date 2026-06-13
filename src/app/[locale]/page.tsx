@@ -1,8 +1,11 @@
 import { Hero } from "@/components/features/hero/Hero";
 import { BentoGrid, BentoCard } from "@/components/ui/BentoGrid";
 import { Target, Zap, Heart } from "lucide-react";
+import { getTranslations } from "next-intl/server";
 
-export default function Home() {
+export default async function Home() {
+  const t = await getTranslations('Home');
+
   return (
     <main className="flex min-h-screen flex-col">
       <Hero />
@@ -11,19 +14,19 @@ export default function Home() {
         <div className="container-apple">
           <BentoGrid>
             <BentoCard
-              title="精准"
-              description="我们坚信像素级的完美执行。"
+              title={t('cards.precision.title')}
+              description={t('cards.precision.description')}
               icon={<Target />}
               className="md:col-span-2"
             />
             <BentoCard
-              title="创新"
-              description="不断突破技术界限。"
+              title={t('cards.innovation.title')}
+              description={t('cards.innovation.description')}
               icon={<Zap />}
             />
             <BentoCard
-              title="共情"
-              description="为人类而设计。"
+              title={t('cards.empathy.title')}
+              description={t('cards.empathy.description')}
               icon={<Heart />}
               className="md:col-span-3"
             />

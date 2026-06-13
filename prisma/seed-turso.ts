@@ -1,8 +1,13 @@
 import { createClient } from '@libsql/client';
 import bcrypt from 'bcryptjs';
 
-const TURSO_URL = 'libsql://aprism-website-bb0813.aws-ap-northeast-1.turso.io';
-const TURSO_TOKEN = 'eyJhbGciOiJFZERTQSIsInR5cCI6IkpXVCJ9.eyJhIjoicnciLCJpYXQiOjE3ODA5NDUyNDQsImlkIjoiMDE5ZWE4OTgtMTEwMS03YWQyLWE0N2EtNzFjYmQyNzg3MDkzIiwicmlkIjoiYWNhOWU0ZTEtODFiOC00YzVlLWE1YjUtYzVmZDg4MzQ2NGNmIn0.AQzLmaKVQMY0PZBY_xOJhUaRyeFTmvOvjSjeqEBEcydFEQDWKn4CLlKaeMOHxmgmeQh4NeBQiv_GGaZYUn6aAA';
+const TURSO_URL = process.env.TURSO_URL || '';
+const TURSO_TOKEN = process.env.TURSO_TOKEN || '';
+
+if (!TURSO_URL || !TURSO_TOKEN) {
+  console.error('Error: TURSO_URL and TURSO_TOKEN environment variables are required');
+  process.exit(1);
+}
 
 async function main() {
   const client = createClient({ url: TURSO_URL, authToken: TURSO_TOKEN });
@@ -10,7 +15,8 @@ async function main() {
   console.log('Seeding Turso database...');
 
   // Admin user
-  const adminHash = await bcrypt.hash('aprism-admin-2024', 12);
+  const adminPassword = process.env.ADMIN_PASSWORD || 'aprism-admin-2024';
+  const adminHash = await bcrypt.hash(adminPassword, 12);
   await client.execute({
     sql: `INSERT OR IGNORE INTO users (id, email, name, password_hash, role) VALUES (?, ?, ?, ?, ?)`,
     args: ['admin', 'admin@aprism.top', 'Admin', adminHash, 'admin']

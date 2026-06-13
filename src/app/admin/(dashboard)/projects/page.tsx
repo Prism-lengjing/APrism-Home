@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Plus, Edit } from "lucide-react";
+import { DeleteButton } from "@/components/features/admin/DeleteButton";
 
 async function getProjects() {
   try {
@@ -30,7 +31,10 @@ export default async function ProjectsPage() {
                 <td className="p-4"><div className="font-medium text-foreground">{p.titleZh || p.title}</div><div className="text-sm text-muted-foreground">{p.slug}</div></td>
                 <td className="p-4 text-sm text-muted-foreground">{p.category}</td>
                 <td className="p-4"><span className={`px-2 py-1 rounded-full text-xs font-medium ${p.status === "active" ? "bg-green-100 text-green-700" : "bg-gray-100 text-gray-700"}`}>{p.status}</span></td>
-                <td className="p-4 text-right"><Link href={`/admin/projects/${p.id}/edit`} className="p-2 hover:bg-muted rounded-lg inline-block"><Edit className="w-4 h-4 text-muted-foreground" /></Link></td>
+                <td className="p-4 text-right">
+                  <Link href={`/admin/projects/${p.id}/edit`} className="p-2 hover:bg-muted rounded-lg inline-block"><Edit className="w-4 h-4 text-muted-foreground" /></Link>
+                  <DeleteButton id={p.id} type="projects" />
+                </td>
               </tr>
             ))}
             {projects.length === 0 && <tr><td colSpan={4} className="p-8 text-center text-muted-foreground">暂无项目</td></tr>}

@@ -329,7 +329,8 @@ async function main() {
 
   // ── Admin User ─────────────────────────────────
 
-  const adminHash = await bcrypt.hash('aprism-admin-2024', 12);
+  const adminPassword = process.env.ADMIN_PASSWORD || 'aprism-admin-2024';
+  const adminHash = await bcrypt.hash(adminPassword, 12);
   await prisma.user.upsert({
     where: { email: 'admin@aprism.top' },
     update: {},

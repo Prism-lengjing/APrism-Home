@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { Edit } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { DeleteButton } from "@/components/features/admin/DeleteButton";
 
 interface Member {
   id: string;
@@ -72,7 +73,10 @@ export function TeamTabs({ members }: { members: Member[] }) {
                 </td>
                 <td className="p-4 text-sm text-muted-foreground">{m.roleZh || m.role}</td>
                 <td className="p-4 text-sm text-muted-foreground max-w-xs truncate">{m.bioZh || m.bio}</td>
-                <td className="p-4 text-right"><Link href={`/admin/team/${m.id}/edit`} className="p-2 hover:bg-muted rounded-lg inline-block"><Edit className="w-4 h-4 text-muted-foreground" /></Link></td>
+                <td className="p-4 text-right">
+                  <Link href={`/admin/team/${m.id}/edit`} className="p-2 hover:bg-muted rounded-lg inline-block"><Edit className="w-4 h-4 text-muted-foreground" /></Link>
+                  <DeleteButton id={m.id} type="team" />
+                </td>
               </tr>
             ))}
             {filtered.length === 0 && <tr><td colSpan={4} className="p-8 text-center text-muted-foreground">暂无数据</td></tr>}

@@ -9,6 +9,7 @@
       "about": "About",
       "team": "Team",
       "projects": "Projects",
+      "blog": "Blog",
       "friends": "Friends",
       "contact": "Contact"
     },
@@ -40,6 +41,22 @@
       "terms": "Terms of Service"
     },
     "copyright": "© {year} AperturePrism. All rights reserved."
+  },
+  "Home": {
+    "cards": {
+      "precision": {
+        "title": "Precision",
+        "description": "Pixel-perfect execution in every detail."
+      },
+      "innovation": {
+        "title": "Innovation",
+        "description": "Pushing boundaries with cutting-edge technology."
+      },
+      "empathy": {
+        "title": "Empathy",
+        "description": "Designing for humans, not just screens."
+      }
+    }
   },
   "About": {
     "title": "Who We Are",
@@ -333,7 +350,9 @@
     "info": {
       "title": "Contact Information",
       "email": "Email",
-      "workMode": "Work Mode"
+      "emailValue": "hello@aprism.top",
+      "workMode": "Work Mode",
+      "workModeValue": "Remote First / Global"
     },
     "social": {
       "title": "Social Media"

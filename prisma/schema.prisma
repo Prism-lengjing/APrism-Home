@@ -142,6 +142,7 @@ model Comment {
   status      String   @default("pending")
   createdAt   DateTime @default(now()) @map("created_at")
 
+  @@index([parentId])
   @@index([postId, status])
   @@index([status])
   @@map("comments")
@@ -171,6 +172,8 @@ model ContactMessage {
   read      Boolean  @default(false)
   createdAt DateTime @default(now()) @map("created_at")
 
+  @@index([read])
+  @@index([createdAt])
   @@map("contact_messages")
 }
 
@@ -188,6 +191,8 @@ model FriendLink {
   active        Boolean  @default(true)
   createdAt     DateTime @default(now()) @map("created_at")
 
+  @@index([active])
+  @@index([sortOrder])
   @@map("friend_links")
 }
 

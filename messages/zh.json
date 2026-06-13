@@ -9,6 +9,7 @@
       "about": "关于",
       "team": "团队",
       "projects": "项目",
+      "blog": "博客",
       "friends": "友链",
       "contact": "联系"
     },
@@ -40,6 +41,22 @@
       "terms": "服务条款"
     },
     "copyright": "© {year} AperturePrism. 保留所有权利。"
+  },
+  "Home": {
+    "cards": {
+      "precision": {
+        "title": "精准",
+        "description": "每一个细节都追求像素级完美。"
+      },
+      "innovation": {
+        "title": "创新",
+        "description": "不断突破技术界限。"
+      },
+      "empathy": {
+        "title": "共情",
+        "description": "为人类而设计。"
+      }
+    }
   },
   "About": {
     "title": "我们是谁",
@@ -329,7 +346,9 @@
     "info": {
       "title": "联系信息",
       "email": "邮箱",
-      "workMode": "工作方式"
+      "emailValue": "hello@aprism.top",
+      "workMode": "工作方式",
+      "workModeValue": "远程优先 / 全球化"
     },
     "social": {
       "title": "社交媒体"

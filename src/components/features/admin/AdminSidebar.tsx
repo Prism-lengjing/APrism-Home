@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { signOut } from "next-auth/react";
 import { cn } from "@/lib/utils";
 import {
   LayoutDashboard,
@@ -61,15 +62,13 @@ export function AdminSidebar() {
           <Settings className="w-4 h-4" />
           查看网站
         </Link>
-        <form action="/api/auth/signout" method="post">
-          <button
-            type="submit"
-            className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:bg-muted hover:text-foreground transition-colors w-full"
-          >
-            <LogOut className="w-4 h-4" />
-            退出登录
-          </button>
-        </form>
+        <button
+          onClick={() => signOut({ callbackUrl: "/admin/login" })}
+          className="flex items-center gap-3 px-3 py-2 rounded-lg text-sm font-medium text-muted-foreground hover:bg-muted hover:text-foreground transition-colors w-full"
+        >
+          <LogOut className="w-4 h-4" />
+          退出登录
+        </button>
       </div>
     </aside>
   );

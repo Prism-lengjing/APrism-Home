@@ -19,10 +19,28 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           credentials.password as string,
           user.passwordHash
         );
-        return valid ? { id: user.id, email: user.email, name: user.name } : null;
+        return valid
+          ? { id: user.id, email: user.email, name: user.name, role: user.role }
+          : null;
       },
     }),
   ],
   session: { strategy: "jwt" },
   pages: { signIn: "/admin/login" },
+  callbacks: {
+    jwt({ token, user }) {
+      if (user) {
+        token.id = user.id;
+        token.role = (user as { role?: string }).role;
+      }
+      return token;
+    },
+    session({ session, token }) {
+      if (session.user) {
+        session.user.id = token.id as string;
+        (session.user as { role?: string }).role = token.role as string;
+      }
+      return session;
+    },
+  },
 });
